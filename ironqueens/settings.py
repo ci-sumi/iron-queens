@@ -27,17 +27,34 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
 
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Django's default backend
+    'allauth.account.auth_backends.AuthenticationBackend',  # Allauth backend
+]
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Thrird-party apps
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    
+    # 'allauth.socialaccount.providers.google', #Add Google provider
 ]
+
+LOGIN_URL = '/accounts/login/'
+LOGOUT_REDIRECT_URL = '/success/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -47,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'ironqueens.urls'
@@ -59,13 +77,22 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                'django.template.context_processors.request',# required by all auth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
+
+
+# Site framework (required for Allauth)
+
+# Account settings
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # Options: "mandatory", "optional", "none"
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Options: "username", "email", "username_email"
+ACCOUNT_USERNAME_REQUIRED = True
 
 WSGI_APPLICATION = 'ironqueens.wsgi.application'
 
@@ -121,3 +148,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Static files settings
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Specify static folder path
+]
