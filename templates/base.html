@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% endblock %}
     <title>Iron Queens{% block extra_title %}{% endblock %}</title>
+      <!-- Font Awesome for icons -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!--Css Section-->
     {% block corecss %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -38,12 +40,67 @@
 
     <!--Body content-->
     <header class="conainer-fluid fixed-top">
-        <h1></h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!-- Text Logo -->
+                <a class="navbar-brand" href="#">
+                    Iron Queens
+                </a>
+                    <form class="d-flex mx-auto position-absolute start-50 translate-middle-x" style="max-width: 500px; width: 100%;">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+            </div>
+            <!-- Navbar Icons Section -->
+            <div class="d-flex align-items-center custom-icons-position"style="margin-right=20px">
+                <!-- Profile Dropdown -->
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>  <!-- User profile icon -->
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="#">Signup</a></li>
+                        <li><a class="dropdown-item" href="#">Register</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Shopping Cart Icon -->
+                <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a> <!-- Cart icon -->
+            </div>
+        </nav>
+        <!-- New Row for Navigation Menu -->
+        <!-- Menu Row Directly Below Logo -->
+        <div class="bg-light border-top py-2">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="navbar-collapse justify-content-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Shop Queens' Picks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">The Iron Tribe</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact the Queens</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </header>
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}
     {% block page_header %}
+    
     {% endblock %}
     {% block content %}
     {% endblock %}
