@@ -1,5 +1,36 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block content %}
-<h1 class="display-4 text-success">Iron queens</h1>
+<div class="container mt-5 pt-5">
+    <div class="row align-items-center">
+        <!-- Left Column: Text Content -->
+        <div class="col-lg-6 text-center text-lg-start">
+            <h1 class="display-4 fw-bold">Welcome to Iron Queens</h1>
+            <p class="lead mt-3">
+                Discover the ultimate shopping experience! Explore our curated collection, enjoy premium services, and join our exclusive community.
+            </p>
+            <div class="mt-4">
+                <a href="#" class="btn btn-primary btn-lg me-3">Shop Now</a>
+                <a href="#services" class="btn btn-outline-secondary btn-lg">View Services</a>
+            </div>
+        </div>
+
+        <!-- Right Column: Image -->
+        <div class="col-lg-6 text-center">
+            <img src="{% static 'media/myhero.webp' %}" class="img-fluid rounded" alt="About Our Brand" style="max-width: 100%;height: auto;  object-fit: cover;margin-left: 40%;">
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12">
+        <h2 class="text-center fw-bold mb-4">About Us</h2>
+        <p class="text-center">
+            At Iron Queens, we are dedicated to empowering individuals through high-quality products and exceptional services.
+            From stylish apparel to innovative solutions, we aim to inspire confidence and a sense of community.
+            Our team is passionate about delivering the best experience to every customer, ensuring satisfaction and value.
+        </p>
+    </div>
+</div>
+
 {% endblock %}
