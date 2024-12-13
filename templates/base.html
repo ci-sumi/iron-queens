@@ -39,63 +39,72 @@
 <body>
 
     <!--Body content-->
-    <header class="conainer-fluid fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <!-- Text Logo -->
-                <a class="navbar-brand" href="#">
-                    <img src="{% static 'path/to/logo.png' %}" alt="Iron Queens Logo" height="40">
-                </a>
-                    <form class="d-flex mx-auto position-absolute start-50 translate-middle-x" style="max-width: 500px; width: 100%;">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    </form>
-                </div>
-            </div>
-            <!-- Navbar Icons Section -->
-            <div class="d-flex align-items-center custom-icons-position"style="margin-right=20px">
+    <header class="container-fluid fixed-top bg-light">
+        <!-- Top Row: Logo, Search Bar, and Icons -->
+        <div class="d-flex justify-content-between align-items-center p-2">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'media/logo.png' %}" alt="Iron Queens Logo" height="60" width="auto">
+            </a>
+    
+            <!-- Search Bar with Icon -->
+            <form class="d-flex mx-auto position-relative" style="max-width: 500px; width: 100%;">
+                <input class="form-control ps-5" type="search" placeholder="Search" aria-label="Search">
+                <i class="fas fa-search position-absolute" style="left: 450px; top: 50%; transform: translateY(-50%);"></i>
+            </form>
+    
+            <!-- Profile and Shopping Cart -->
+            <div class="d-flex align-items-center">
                 <!-- Profile Dropdown -->
-                <div class="dropdown">
+                <div class="dropdown me-3">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i>  <!-- User profile icon -->
+                        <i class="fas fa-user"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                         <li><a class="dropdown-item" href="#">Signup</a></li>
                         <li><a class="dropdown-item" href="#">Register</a></li>
                     </ul>
                 </div>
-                
-                <!-- Shopping Cart Icon -->
-                <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a> <!-- Cart icon -->
-            </div>
-        </nav>
-        <!-- New Row for Navigation Menu -->
-        <!-- Menu Row Directly Below Logo -->
-        <div class="bg-light border-top py-2">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="navbar-collapse justify-content-center">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Shop Queens' Picks</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">The Iron Tribe</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact the Queens</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+    
+                <!-- Shopping Cart -->
+                <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
+    
+        <!-- Second Row: Navigation Menu -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-top">
+            <div class="container-fluid">
+                <!-- Toggle Button for Collapse -->
+                <button class="navbar-toggler mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <!-- Collapsible Menu -->
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Shop Queens' Picks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">The Iron Tribe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact the Queens</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
+    
+
+        
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}
@@ -103,6 +112,59 @@
     
     {% endblock %}
     {% block content %}
+    {% endblock %}
+    {% block footer %}
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- Newsletter Section -->
+                <div class="col-lg-6 mb-4">
+                    <h4 class="fw-bold">Stay in Touch</h4>
+                    <p class="small">Subscribe to our newsletter to get the latest updates, offers, and insights from Iron Queens.</p>
+                    <form class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+    
+                <!-- Social Media Links -->
+                <div class="col-lg-6 mb-4 text-lg-end">
+                    <h4 class="fw-bold">Follow Us</h4>
+                    <div>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Iron Group Images Section -->
+            <div class="row mt-5">
+                <h5 class="fw-bold text-center mb-4">Part of the Iron Group</h5>
+                <div class="col-6 col-md-3 mb-3">
+                    <img src="{% static 'media/crown.jpg' %}" class="img-fluid rounded" alt="Group 1">
+                </div>
+                <div class="col-6 col-md-3 mb-3">
+                    <img src="{% static 'media/fitness.jpg' %}" class="img-fluid rounded" alt="Group 2">
+                </div>
+                <div class="col-6 col-md-3 mb-3">
+                    <img src="{% static 'media/time.webp' %}" class="img-fluid rounded" alt="Group 3">
+                </div>
+                <div class="col-6 col-md-3 mb-3">
+                    <img src="{% static 'media/club.webp' %}" class="img-fluid rounded" alt="Group 4">
+                </div>
+            </div>
+    
+            <!-- Footer Bottom Section -->
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p class="small mb-0">&copy; 2024 Iron Queens. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
     {% endblock %}
     {% block postloadjs %}
     {% endblock %}
