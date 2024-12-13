@@ -1,0 +1,98 @@
+/* Content Section */
+.content-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #003366; /* Use primary color */
+    color: white;
+}
+
+.content-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.content-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.content-section .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.content-section .btn-primary {
+    background-color: #ff6600; /* Secondary color */
+    color: white;
+}
+
+.content-section .btn-primary:hover {
+    background-color: #cc5200; /* Darker shade of secondary color */
+}
+
+.content-section .btn-secondary {
+    background-color: #ffffff;
+    color: #003366; /* Primary color */
+    border: 2px solid #003366;
+}
+
+.content-section .btn-secondary:hover {
+    background-color: #003366;
+    color: white;
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 60px 20px;
+    background-color: #ffffff; /* White background for contrast */
+}
+
+.about-section .about-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-section .about-text {
+    max-width: 600px;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    color: #003366; /* Primary color */
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555; /* Slightly lighter color for readability */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .content-section h1 {
+        font-size: 2rem;
+    }
+
+    .content-section p {
+        font-size: 1rem;
+    }
+
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-section .about-image {
+        margin-bottom: 20px;
+    }
+}
