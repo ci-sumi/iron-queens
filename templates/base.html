@@ -42,7 +42,7 @@
     <!--Body content-->
     <header class="container-fluid fixed-top bg-light">
         <!-- Top Row: Logo, Search Bar, and Icons -->
-        <div class="d-flex justify-content-between align-items-center p-2">
+        <div class="d-flex justify-content-between align-items-center p-2" style="background-color: #f8f9fa;">
             <!-- Logo -->
             <a class="navbar-brand" href="#">
                 <img src="{% static 'media/logo.png' %}" alt="Iron Queens Logo" height="60" width="auto">
@@ -115,62 +115,55 @@
     {% block content %}
     {% endblock %}
     {% block footer %}
-    <footer class="bg-dark text-white pt-5 pb-3">
+    <footer class="bg-dark text-white py-0">
         <div class="container">
-            <div class="row">
+            <!-- Single Row Footer -->
+            <div class="row align-items-center">
                 <!-- Stay in Touch Section -->
-                <div class="col-lg-6 mb-4">
-                    <h4 class="fw-bold">Stay in Touch</h4>
-                    <p class="small">Subscribe to our newsletter to get the latest updates, offers, and insights from Iron Queens.</p>
-                    <form class="input-group">
-                        <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email" required>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <h5 class="fw-bold">Stay in Touch</h5>
+                    <p class="small">Subscribe to our newsletter for updates and offers from Iron Queens.</p>
+                    <form class="input-group justify-content-center">
+                        <input type="email" class="form-control w-auto" placeholder="Enter your email" required>
                         <button class="btn btn-primary" type="submit">Subscribe</button>
                     </form>
-                    <h4 class="fw-bold">Follow Us</h4>
-                    <div>
-                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin"></i></a>
-                    </div>
                 </div>
     
-                <!-- Follow Us Section -->
-                 
-                <div class="col-lg-6 mb-4 text-lg-end">
-                    <div class="d-flex justify-content-end">
-                        <div class="col-4">
-                            <img src="{% static 'media/crown.jpg' %}" class="img-fluid rounded mb-3" alt="Group 1">
-                        </div>
-                        <div class="col-4">
-                            <img src="{% static 'media/fitness.jpg' %}" class="img-fluid rounded mb-3" alt="Group 2">
-                        </div>
-                        <div class="col-4">
-                            <img src="{% static 'media/time.webp' %}" class="img-fluid rounded mb-3" alt="Group 3">
-                        </div>
+                <!-- Quick Links Section -->
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <h5 class="fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-blue text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-blue text-decoration-none">Shop Queens' Picks</a></li>
+                        <li><a href="#" class="text-blue text-decoration-none">Services</a></li>
+                        <li><a href="#" class="text-blue text-decoration-none">The Iron Tribe</a></li>
+                        <li><a href="#" class="text-blue text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Social Media and Images Section -->
+                <div class="col-md-4 text-center">
+                    <h5 class="fw-bold">Follow Us</h5>
+                    <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin"></i></a>
+                    <div class="d-flex justify-content-center mt-3">
+                        <img src="{% static 'media/crown.jpg' %}" class="img-fluid rounded me-2" alt="Group 1" style="width: 80px;">
+                        <img src="{% static 'media/fitness.jpg' %}" class="img-fluid rounded me-2" alt="Group 2" style="width: 80px;">
+                        <img src="{% static 'media/time.webp' %}" class="img-fluid rounded" alt="Group 3" style="width: 80px;">
                     </div>
-                    
                 </div>
             </div>
     
-            <!-- Part of the Iron Group Section -->
-            <div class="row">
-                <div class="col-lg-8">
-                    <
-                   
-                </div>
-            </div>
-    
-            <!-- Footer Bottom Section -->
-            <div class="row mt-4">
+            <!-- Bottom Section: Copyright -->
+            <div class="row mt-3">
                 <div class="col text-center">
-                    <p class="small mb-0">&copy; 2024 Layali. All rights reserved.</p>
+                    <p class="small mb-0">&copy; 2024 Iron Queens. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
-    
-    
     
     {% endblock %}
     {% block postloadjs %}
