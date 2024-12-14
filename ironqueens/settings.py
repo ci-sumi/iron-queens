@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
+    'products',
     
     # 'allauth.socialaccount.providers.google', #Add Google provider
 ]
