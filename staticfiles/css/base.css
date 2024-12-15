@@ -1,0 +1,172 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header (Top Section) */
+header {
+    background-color: #f8f9fa; /* Light gray background for the header */
+    z-index: 1050;
+}
+
+/* Logo and Search Bar */
+.navbar-brand img {
+    height: 60px;
+    width: auto;
+}
+
+form .form-control {
+    padding-left: 40px; /* To accommodate the search icon */
+    border-radius: 25px;
+}
+
+form i {
+    font-size: 18px;
+    color: #6c757d;
+}
+
+/* Navigation Menu */
+.navbar {
+    background-color: #343a40; /* Dark background for navbar */
+}
+
+.navbar-nav .nav-link {
+    color: #c18945 !important; /* White text for menu items */
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8c032; /* Hover effect with gold color */
+}
+
+.navbar-toggler {
+    border-color: #f8c032; /* Toggler icon border color */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,..."); /* Customize the hamburger icon */
+}
+
+/* Profile Dropdown */
+.navbar .dropdown-menu {
+    background-color: #343a40; /* Match dropdown menu to navbar */
+}
+
+.navbar .dropdown-item {
+    color: #ffffff !important;
+    padding: 12px 20px;
+    font-size: 1rem;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: #f8c032; /* Highlight dropdown items on hover */
+    color: #343a40 !important;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 100%; /* Adjust width as needed */
+    margin: 0 auto;    /* Center the footer */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+.btn-outline-light {
+    color: red !important;
+}
+
+footer h4,
+footer h5 {
+    color: #f8c032; /* Gold color for headings */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+footer p {
+    color: #b0b0b0; /* Lighter text for descriptions */
+    font-size: 0.9rem;
+}
+
+footer .input-group {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+footer .form-control {
+    border-radius: 25px;
+    padding: 15px;
+}
+
+footer .btn-primary {
+    background-color: #f8c032;
+    border: none;
+    border-radius: 25px;
+    color: #343a40;
+    padding: 12px 25px;
+}
+
+footer .btn-primary:hover {
+    background-color: #343a40;
+    color: #f8c032;
+}
+
+footer .social-media a {
+    font-size: 20px;
+    color:white;
+    margin-right: 15px;
+}
+
+footer .social-media a:hover {
+    color: #f8c032; /* Highlight social icons on hover */
+}
+
+/* Iron Group Section */
+footer .row img {
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+footer .row img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Footer Bottom */
+footer .row p {
+    font-size: 0.8rem;
+    color: #b0b0b0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 15px 20px;
+    }
+
+    footer .input-group {
+        width: 90%;
+    }
+
+    footer .social-media {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    footer .row img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}

@@ -12,23 +12,43 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api  
+import cloudinary_storage
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)0lqwg6f!j=9@jdj3i3)rap(z=fc91+w_emvs^d27u$2a^+@rq'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+
+
+# Configure Cloudinary credentials
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+    'API_KEY': os.environ.get('API_KEY'),
+    'API_SECRET': os.environ.get('API_SECRET')
+}
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 SITE_ID = 1
+
+print(CLOUDINARY_STORAGE)
 
 
 
@@ -45,6 +65,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'cloudinary_storage',
     
     # Thrird-party apps
     'allauth',
@@ -156,8 +178,31 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Static files settings
-STATIC_URL = 'static/'
+
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+# Set Cloudinary as the default file storage
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR,"static"),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+
+
+# Debugging prints to verify .env is loaded
+print("CLOUD_NAME:", os.getenv("CLOUD_NAME"))
+print("API_KEY:", os.getenv("API_KEY"))
+print("API_SECRET:", os.getenv("API_SECRET"))
+
+
+
+
+
+
+
+
+print(CLOUDINARY_STORAGE)
+print(CLOUDINARY_STORAGE['CLOUD_NAME'])
+print(DEBUG,'DEBUG')
