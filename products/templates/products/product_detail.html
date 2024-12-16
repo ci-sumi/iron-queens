@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_corecss %}
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+<link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row">
+        <!-- Product Image Section -->
+        <div class="col-md-6 d-flex justify-content-center mb-4" style="margin-top: 80px;">
+            <!-- Clickable image to open in Modal -->
+            <a href="#" data-toggle="modal" data-target="#productImageModal">
+                <img src="{{ product.image.url }}" class="img-fluid rounded shadow-lg" alt="{{ product.name }}" style="max-height: 500px; object-fit: contain;">
+            </a>
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="col-md-6" style="margin-top: 100px;">
+            <!-- Product Name -->
+            <h2 class="text-dark mb-3">{{ product.name }}</h2>
+
+            <!-- Product Price -->
+            <h3 class="text-success mb-3">€{{ product.price }}</h3>
+            
+            <!-- Rating Section -->
+            <div class="product-rating mb-4">
+                {% for i in range_of_stars %}
+                    {% if i <= product.rating %}
+                        <i class="fas fa-star text-warning"></i> <!-- Full star -->
+                    {% else %}
+                        <i class="far fa-star text-warning"></i> <!-- Empty star -->
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <!-- Product Description -->
+            <p class="text-muted"><strong>Description:</strong></p>
+            <p>{{ product.description }}</p>
+
+            <!-- Product Availability/Rating -->
+            <p>
+                {% if product.rating %}
+                    <small class="text-muted">Rating: {{ product.rating }}</small>
+                {% else %}
+                    <small class="text-muted">Not rated yet</small>
+                {% endif %}
+            </p>
+
+            <!-- Add to Cart and Back Button -->
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <a href="{% url 'products' %}" class="btn btn-outline-dark">Back to Products</a>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Image Viewing -->
+<div class="modal fade" id="productImageModal" tabindex="-1" role="dialog" aria-labelledby="productImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productImageModalLabel">{{ product.name }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{ product.image.url }}" class="img-fluid rounded" alt="{{ product.name }}">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
