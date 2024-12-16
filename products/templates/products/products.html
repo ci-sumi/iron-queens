@@ -18,13 +18,25 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">
-                            <strong>${{ product.price }}</strong><br>
-                            {% if product.rating %}
-                                <small>Rating: {{ product.rating }}</small>
-                            {% else %}
-                                <small>Not rated yet</small>
-                            {% endif %}
+                            <strong>€{{ product.price }}</strong><br>
+                            <p class="product-rating">
+                                {% for i in range_of_stars %}
+                                    {% if i <= product.rating %}
+                                        <i class="fas fa-star"></i> <!-- Full star -->
+                                    {% else %}
+                                        <i class="far fa-star"></i> <!-- Empty star -->
+                                    {% endif %}
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {% if product.rating %}
+                                    <small>Rating: {{ product.rating }}</small>
+                                {% else %}
+                                    <small>Not rated yet</small>
+                                {% endif %}
+                            </p>
                         </p>
+                        
                     </div>
                 </div>
             {% comment %} </a> {% endcomment %}
