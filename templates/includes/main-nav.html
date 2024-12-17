@@ -7,11 +7,11 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="queensPicksDropdown">
                 <li><a class="dropdown-item" href={% url "products" %}>All Products</a></li>
-                <li><a class="dropdown-item" href="#">Tops</a></li>
-                <li><a class="dropdown-item" href="#">Water Bottles and Shakers</a></li>
-                <li><a class="dropdown-item" href="#">Bags</a></li>
-                <li><a class="dropdown-item" href="#">Equipment</a></li>
-                <li><a class="dropdown-item" href="#">Protein Bars</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=Gym Tank Tops and T-Shirts">Tops</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=Gym Bottle">Water Bottles and Shakers</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=Gym Bags">Bags</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=Gym Equipment">Equipment</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=Protein Bars">Protein Bars</a></li>
             </ul>
         </li>
     </ul>
