@@ -9,40 +9,63 @@
 
 <div class="container py-5">
     <h2 class="text-center mb-4">Our Products</h2>
-    <div class="row">
-        {% for product in products %}
-        <div class="col-md-3 mb-4">
-            <a>
-            <a href="{% url 'product_detail' product.id %}" class="card-link">
-                <div class="card shadow-sm h-100">
-                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">
-                            <strong>€{{ product.price }}</strong><br>
-                            <p class="product-rating">
-                                {% for i in range_of_stars %}
-                                    {% if i <= product.rating %}
-                                        <i class="fas fa-star"></i> <!-- Full star -->
-                                    {% else %}
-                                        <i class="far fa-star"></i> <!-- Empty star -->
-                                    {% endif %}
-                                {% endfor %}
-                            </p>
-                            <p>
-                                {% if product.rating %}
-                                    <small>Rating: {{ product.rating }}</small>
-                                {% else %}
-                                    <small>Not rated yet</small>
-                                {% endif %}
-                            </p>
-                        </p>
-                        
-                    </div>
-                </div>
-            </a>
-        </div>
-        {% endfor %}
+    <div style="margin-top: 100px;">
+        <!-- Sorting Dropdown -->
+        <form method="get" class="d-inline">
+            <label for="sort" class="me-2">Sort By:</label>
+            <select name="sort" id="sort" class="form-select d-inline-block w-auto" onchange="this.form.submit()">
+                <option value="" {% if not selected_sort %}selected{% endif %}>Default</option>
+                <option value="low_to_high" {% if selected_sort == 'low_to_high' %}selected{% endif %}>Price: Low
+                    to High</option>
+                <option value="high_to_low" {% if selected_sort == 'high_to_low' %}selected{% endif %}>Price: High
+                    to Low</option>
+                <option value="name_a_z" {% if selected_sort == 'name_a_z' %}selected{% endif %}>Name: A to Z</option>
+                <option value="name_z_a" {% if selected_sort == 'name_z_a' %}selected{% endif %}>Name: Z to A</option>
+            </select>
+        </form>
     </div>
 </div>
+<!-- Display Total Products Count -->
+<p>Total Products: {{ products.count }}</p>
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-3 mb-4">
+        <a href="{% url 'product_detail' product.id %}" class="card-link">
+            <div class="card shadow-sm h-100">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">
+                        <strong>€{{ product.price }}</strong><br>
+                    <p class="product-rating">
+                        {% for i in range_of_stars %}
+                        {% if i <= product.rating %} <i class="fas fa-star"></i> <!-- Full star -->
+                            {% else %}
+                            <i class="far fa-star"></i> <!-- Empty star -->
+                            {% endif %}
+                            {% endfor %}
+                    </p>
+                    <p>
+                        {% if product.rating %}
+                        <small>Rating: {{ product.rating }}</small>
+                        {% else %}
+                        <small>Not rated yet</small>
+                        {% endif %}
+                    </p>
+                    </p>
+
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+</div>
 {% endblock %}
+{% if messages %}
+
+{% for message in messages %}
+<p class="alert alert-warning">{{ message }}</p>
+{% endfor %}
+
+{% endif %}
