@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+
+
 {% block extra_corecss %}
 <link href="{% static 'css/index.css' %}" rel="stylesheet">
 {% endblock %}
@@ -7,48 +9,67 @@
 {% block content %}
 <div class="container">
     <h1>Shopping Cart</h1>
-    {% if cart_items %}
-    <table class="table">
+    {% if bag_items %}
+    <table class="table table-striped" style="margin-top: 100PX;">
         <thead>
             <tr>
+                <th>Image</th>
+                <th>SKU</th>
                 <th>Product</th>
-                <th>Price</th>
+                <th>Unit Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            {% for item in cart_items %}
+            {% for item in bag_items %}
             <tr>
-                <td>{{ item.product.name }}</td>
-                <td>${{ item.product.price }}</td>
+                <!-- Product Image -->
                 <td>
-                    <form action="{% url 'update_cart' item.product.id %}" method="POST">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-thumbnail" style="width: 80px; height: auto;">
+                </td>
+                <!-- Product SKU -->
+                <td>{{ item.product.sku }}</td>
+                <!-- Product Name -->
+                <td>{{ item.product.name }}</td>
+                <!-- Unit Price -->
+                <td>${{ item.product.price }}</td>
+                <!-- Quantity -->
+                <td>
+                    {% comment %} <form action="{% url 'update_cart' item.product.id %}" method="POST"> {% endcomment %}
                         {% csrf_token %}
-                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
-                        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        <input type="number" name="quantity" value="{{item.item_quantity }}" min="1" class="form-control form-control-sm" style="width: 50px;">
+                        {% comment %} <button type="submit" class="btn btn-sm btn-primary mt-2">Update</button> {% endcomment %}
                     </form>
                 </td>
-                {% comment %} <td>${{ item.product.price|multiply:item.quantity }}</td> {% endcomment %}
+                <!-- Total Price -->
+                <td>${{ item.item_total }}</td>
                 <td>
-                    <form action="{% url 'remove_from_cart' item.product.id %}" method="POST">
+                    {% comment %} <form action="{% url 'remove_from_cart' item.product.id %}" method="POST"> {% endcomment %}
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                        {% comment %} <button type="submit" class="btn btn-sm btn-danger">Remove</button> {% endcomment %}
                     </form>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <div class="cart-summary">
-        <p><strong>Subtotal:</strong> ${{ cart_total }}</p>
-        <a href="{% url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
+    <div class="cart-summary text-end mt-4">
+        <h5><strong>Bag Total:</strong> ${{ total }}</h5>
+        <h5><strong>Delivery:</strong> ${{ delivery}}</h5>
+        {% if free_delivery_delta > 0 %}
+            <p class="text-muted">Spend ${{ free_delivery_delta }} more to qualify for free delivery.</p>
+        {% endif %}
+        <hr>
+        <h4><strong>Grand Total:</strong> ${{ grand_total }}</h4>
+        <a href="#" class="btn btn-success mt-3">Proceed to Checkout</a>
+        <a href="#" class="btn btn-success mt-3">Keep Shopping</a>
     </div>
     {% else %}
-    <p>Your shopping cart is empty.</p>
-    <a href="{% url 'products' %}" class="btn btn-primary">Continue Shopping</a>
+    <div class="text-center">
+        <p>Your shopping cart is empty.</p>
+        <a href="{% url 'products' %}" class="btn btn-primary">Continue Shopping</a>
+    </div>
     {% endif %}
 </div>
-
 {% endblock %}
