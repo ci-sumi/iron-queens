@@ -33,4 +33,14 @@ def update_bag(request, product_id):
         
         
     return redirect('view_bag')
+
+
+def remove_from_bag(request, product_id): 
+    bag = request.session.get('bag', {})
+    product_id = str(product_id)
+    if product_id in bag:
+        del bag[product_id]
+    request.session['bag'] = bag
+    request.session.modified = True
+    return redirect('view_bag')
     
