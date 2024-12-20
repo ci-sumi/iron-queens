@@ -36,10 +36,12 @@
                 <td>${{ item.product.price }}</td>
                 <!-- Quantity -->
                 <td>
-                    {% comment %} <form action="{% url 'update_cart' item.product.id %}" method="POST"> {% endcomment %}
+                    <form action="{% url 'update_bag' item.product.id %}" method="POST">
                         {% csrf_token %}
-                        <input type="number" name="quantity" value="{{item.item_quantity }}" min="1" class="form-control form-control-sm" style="width: 50px;">
-                        {% comment %} <button type="submit" class="btn btn-sm btn-primary mt-2">Update</button> {% endcomment %}
+                        <input type="number" name="quantity" value="{{ item.item_quantity }}" min="1" class="form-control form-control-sm" style="width: 100px;" required>
+                        <button type="submit" class="btn btn-link p-0">
+                            <i class="fas fa-sync-alt" title="Update Quantity"></i>
+                        </button>
                     </form>
                 </td>
                 <!-- Total Price -->
