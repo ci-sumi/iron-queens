@@ -18,3 +18,19 @@ def add_to_bag(request, product_id):
         
     request.session['bag'] = bag
     return redirect('view_bag')
+
+
+def update_bag(request, product_id):
+    if request.method == 'POST':
+        new_quantity = int(request.POST.get('quantity',1))
+        bag = request.session.get('bag', {})
+        if new_quantity >0:
+            bag[product_id] = new_quantity
+        else:
+            bag.pop(product_id,None)
+            
+    request.session['bag'] = bag
+        
+        
+    return redirect('view_bag')
+    
