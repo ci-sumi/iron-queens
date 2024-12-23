@@ -38,12 +38,15 @@ def update_bag(request, product_id):
     return redirect('view_bag')
 
 
-def remove_from_bag(request, product_id): 
+def remove_from_bag(request, product_id):
+    product = get_object_or_404(Product, pk=product_id) 
     bag = request.session.get('bag', {})
     product_id = str(product_id)
     if product_id in bag:
         del bag[product_id]
     request.session['bag'] = bag
     request.session.modified = True
+    success_message = f'Removed {product.name} to your bag'
+    messages.success(request, success_message)
     return redirect('view_bag')
     
