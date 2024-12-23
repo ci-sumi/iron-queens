@@ -76,7 +76,8 @@
                 </div>
     
                 <!-- Shopping Cart -->
-                <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+                <a class="nav-link" href="{% url "view_bag" %}"><i class="fas fa-shopping-cart"></i></a>
+                {{ grand_total }}
             </div>
         </div>
     
@@ -115,7 +116,22 @@
 
         
     {% if messages %}
-    <div class="message-container"></div>
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30  %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25  %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% endif %}
+        {% endwith %}
+        
+        {% endfor%}
+    </div>
     {% endif %}
     {% block page_header %}
     
@@ -175,6 +191,15 @@
     
     {% endblock %}
     {% block postloadjs %}
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var toastElements = [].slice.call(document.querySelectorAll('.toast'));
+        toastElements.forEach(function (toastElement) {
+            var toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        });
+    });
+</script>
     {% endblock %}
 
 </body>
