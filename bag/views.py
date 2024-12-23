@@ -24,6 +24,7 @@ def add_to_bag(request, product_id):
 
 
 def update_bag(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         new_quantity = int(request.POST.get('quantity',1))
         bag = request.session.get('bag', {})
@@ -31,10 +32,10 @@ def update_bag(request, product_id):
             bag[product_id] = new_quantity
         else:
             bag.pop(product_id,None)
-            
+           
     request.session['bag'] = bag
         
-        
+    messages.success(request, f'Updated {product.sku} quantity in your bag')    
     return redirect('view_bag')
 
 
