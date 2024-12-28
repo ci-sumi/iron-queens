@@ -66,7 +66,7 @@
         {% endif %}
         <hr>
         <h4><strong>Grand Total:</strong> ${{ grand_total }}</h4>
-        <a href="#" class="btn btn-success mt-3">Proceed to Checkout</a>
+        <a href="{% url 'checkout' %}" class="btn btn-success mt-3">Proceed to Checkout</a>
         <a href="#" class="btn btn-success mt-3">Keep Shopping</a>
     </div>
     {% else %}
