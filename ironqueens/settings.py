@@ -76,6 +76,9 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
+    'crispy_forms',
+    'crispy_bootstrap5', 
+    
 
     
     # 'allauth.socialaccount.providers.google', #Add Google provider
@@ -96,6 +99,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ironqueens.urls'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 TEMPLATES = [
     {
