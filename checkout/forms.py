@@ -1,5 +1,7 @@
 from django import forms
 from .models import Order
+from django_countries.fields import CountryField
+from django_countries.widgets import CountrySelectWidget
 
 class OrderForm(forms.ModelForm):
     class Meta:
@@ -11,22 +13,25 @@ class OrderForm(forms.ModelForm):
         
         widgets = {
             'full_name': forms.TextInput(attrs={'class': 'form-control',
-             'placeholder': 'Enter your Full Name','autofocus': 'autofocus'}),
+             'placeholder': 'Full Name *','autofocus': 'autofocus'}),
             'email': forms.EmailInput(attrs={'class': 'form-control',
-             'placeholder': 'Enter your email'}),
+             'placeholder': 'Email Address *'}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control',
-             'placeholder': 'Enter your phone number'}),
+             'placeholder': 'Phone Number *'}),
             'street_address1': forms.TextInput(attrs={'class': 'form-control',
-             'placeholder': 'Enter your street address1'}),
+             'placeholder': 'Street Address 1 *'}),
             'street_address2': forms.TextInput(attrs={'class': 'form-control',
-             'placeholder': 'Enter your street address2'}),
+             'placeholder': 'Street Address 2 '}),
             'town_or_city': forms.TextInput(attrs={'class': 'form-control',
-             'placeholder': 'Enter your town or city'}),
+             'placeholder': 'Town or City *'}),
             'postcode': forms.TextInput(attrs={'class': 'form-control',
-             'placeholder': 'Enter your postcode'}),
+             'placeholder': 'Postcode '}),
             'county': forms.TextInput(attrs={'class': 'form-control',
-             'placeholder': 'Enter your county'}),
-            'country': forms.TextInput(attrs={'class': 'form-control',
-             'placeholder': 'Enter your country'}),
+             'placeholder': 'County/District'}),
+            'country': CountrySelectWidget(attrs={'class': 'form-control', 'placeholder': 'Select Country'}),
         }
-            
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)    
+        for field in self.fields.values():
+            field.label = False
