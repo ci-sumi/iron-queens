@@ -1,0 +1,36 @@
+/* Add this to your CSS or inside <style> tag in the template */
+
+form .form-control {
+    border-radius: 0;  /* Makes the input fields square */
+    border: 1px solid #ccc; /* Adds a subtle border */
+    padding: 10px 15px;  /* Adds padding inside the input field */
+    font-size: 1rem;  /* Controls font size */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition for focus */
+}
+
+form .form-control:focus {
+    border-color: red;  /* Change border color when focused */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);  /* Adds a subtle glow around the field */
+}
+
+form .btn-link {
+    text-decoration: none;
+    color: #007bff;  /* Blue text for links */
+    font-weight: 600;
+}
+
+form .btn-link:hover {
+    color: #0056b3;  /* Darker blue when hovered */
+}
+
+/* Styling for headings */
+form h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Add some margin between the fields */
+form .mb-3 {
+    margin-bottom: 1rem;
+}
