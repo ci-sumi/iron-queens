@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_corecss %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Checkout</h1>
+
+    {% if bag_items %}
+    <form method="POST" action="{% url 'checkout' %}" class="hide-label">
+        {% csrf_token %}
+        <div class="row">
+            <!-- Left Side: Billing Information -->
+            <div class="col-md-6">
+                <div class="checkout-form" >
+                    <h4>Billing Information</h4>
+                    {{ orderform|crispy }}
+                </div>
+            </div>
+
+            <!-- Right Side: Order Summary -->
+            <div class="col-md-6" style="margin-top: 100px;">
+                <h4>OrderSummary({{product_count}})</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>SubTotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in bag_items %}
+                        <tr>
+                            <!-- Product Image -->
+                            <td>
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-thumbnail" style="width: 80px; height: auto;">
+                            </td>
+                    
+                            <!-- Product Name -->
+                            <td>{{ item.product.name }}</td>
+                            <!-- Unit Price -->
+                            <td>{{ item.item_quantity }}</td>
+                            <!-- Total Price -->
+                            <td>${{ item.item_total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary text-end mt-4">
+                    <h5><strong>Bag Total:</strong> ${{ total }}</h5>
+                    <h5><strong>Delivery:</strong> ${{ delivery }}</h5>
+                    {% if free_delivery_delta > 0 %}
+                    <p class="text-muted">Spend ${{ free_delivery_delta }} more to qualify for free delivery.</p>
+                    {% endif %}
+                    <hr>
+                    <h4><strong>Grand Total:</strong> ${{ grand_total }}</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-end mt-4">
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </div>
+    </form>
+
+    {% else %}
+    <div class="text-center">
+        <p>Your shopping cart is empty.</p>
+        <a href="{% url 'products' %}" class="btn btn-primary">Continue Shopping</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
