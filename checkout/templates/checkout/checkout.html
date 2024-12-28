@@ -33,6 +33,45 @@
                     <p class="mt-3">
                         <a href="#" class="btn btn-link">Create an account or login to save your information.</a>
                     </p>
+                    <fieldset class="px-3 border border-muted rounded-3 shadow-sm">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                
+                        <!-- Stripe Card Element -->
+                        <div class="mb-3" id="card-element">
+                            <!-- A Stripe Element will be inserted here -->
+                        </div>
+                
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    </fieldset>
+                
+                    <!-- Buttons -->
+                    <div class="submit-button text-right mt-5 mb-2">
+                        <!-- Adjust Bag Button -->
+                        <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0 px-4 py-2">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="font-weight-bold">Adjust Bag</span>
+                        </a>
+                
+                        <!-- Submit Button -->
+                        <button id="submit-button" class="btn btn-black rounded-0 px-4 py-2">
+                            <span class="font-weight-bold">Complete Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                
+                        <!-- Payment Info -->
+                        <p class="small text-danger my-0">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                        </p>
+                    </div>
+
  
                 </div>
             </div>
