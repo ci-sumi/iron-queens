@@ -7,6 +7,7 @@ from products.models import Product
 from .models import Order, OrderLineItem
 from django.urls import reverse
 from django.conf import settings
+from django.contrib.auth.models import User
 
 # Create your views here.
 def checkout(request):
@@ -83,10 +84,10 @@ def checkout(request):
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = Order.objects.get(order_number=order_number)
-    if request.user.is_authenticated:
-        profile = request.user.profile
-        order.user_profile = profile
-        order.save()
+    # if request.user.is_authenticated:
+    #     profile = request.user.profile
+    #     order.user_profile = profile
+    #     order.save()
     messages.success(request, f'Order successfully processed! \
         Your order number is . A confirmation \
         email will be sent to {order.email}.')
