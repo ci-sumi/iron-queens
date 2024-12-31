@@ -135,6 +135,14 @@
     </div>
     {% endif %}
 </div>
+<div id="loading-overlay">
+    <h1 class="text-light logo-front loading-spinner">
+        <span class="icon">
+            <i class="fa fa-3x fa-sync-alt fa-spin"></i>
+        </span>
+        <p>Processing your payment, please wait...</p>
+    </h1>
+</div>
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
