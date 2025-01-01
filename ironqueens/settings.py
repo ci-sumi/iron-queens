@@ -193,7 +193,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -215,12 +215,24 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 
+#stripe
+STRIPE_CURRENCY = 'usd'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY','')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY','')
+STRIPE_WH_SECRET_KEY = os.getenv('STRIPE_WH_SECRET_KEY','')
+
+
+
 
 
 # Debugging prints to verify .env is loaded
 print("CLOUD_NAME:", os.getenv("CLOUD_NAME"))
 print("API_KEY:", os.getenv("API_KEY"))
 print("API_SECRET:", os.getenv("API_SECRET"))
+
+print("stripe_public_key:", STRIPE_PUBLIC_KEY)
+print("stripe_secret_key:", STRIPE_SECRET_KEY)
+print("stripe_wh_secret_key:", STRIPE_WH_SECRET_KEY)
 
 
 
