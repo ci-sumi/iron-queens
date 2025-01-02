@@ -27,7 +27,7 @@ class OrderForm(forms.ModelForm):
             'postcode': forms.TextInput(attrs={'class': 'form-control',
              'placeholder': 'Postcode '}),
             'county': forms.TextInput(attrs={'class': 'form-control',
-             'placeholder': 'County/District'}),
+             'placeholder': 'County, State or Province *'}),
             'country': CountrySelectWidget(attrs={'class': 'form-control', 'placeholder': 'Select Country'}),
         }
 
