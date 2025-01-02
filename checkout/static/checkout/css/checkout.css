@@ -54,3 +54,18 @@ form .mb-3 {
     margin: 0;
     height: 100%;
 }
+/* For the select element and options when it's valid */
+select,
+select option {
+    color: #000000;
+}
+
+/* For the select element when it's invalid (e.g., when no option is selected) */
+select:invalid {
+    color: #aab7c4 !important; /* Apply gray color when invalid */
+}
+
+/* For the placeholder option (the one with value="") */
+select option[value=""] {
+    color: #aab7c4 !important; /* Apply gray color to the placeholder option */
+}
