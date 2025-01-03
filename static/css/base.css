@@ -1,4 +1,23 @@
 /* General Reset */
+
+html, body {
+    height: 100%; /* Ensures the page content takes full height */
+    margin: 0; /* Removes default margin */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Ensures content flows vertically */
+}
+
+main {
+    flex: 1; /* Takes up remaining space between header and footer */
+}
+
+footer {
+    flex-shrink: 0; /* Prevents footer from shrinking */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -195,3 +214,6 @@ footer .row p {
     font-size: 1rem;
     padding: 1rem;
 }
+
+
+
