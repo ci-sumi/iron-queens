@@ -47,6 +47,7 @@ CLOUDINARY_STORAGE = {
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 SITE_ID = 1
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 print(CLOUDINARY_STORAGE)
 
@@ -86,8 +87,9 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.google', #Add Google provider
 ]
 
-LOGIN_URL = '/accounts/login/'
-LOGOUT_REDIRECT_URL = '/success/'
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,10 +131,14 @@ TEMPLATES = [
 # Site framework (required for Allauth)
 
 # Account settings
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # Options: "mandatory", "optional", "none"
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Options: "username", "email", "username_email"
-ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Options: "mandatory", "optional", "none"  # Options: "username", "email", "username_email"
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+# LOGIN_REDIRECT_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/profile/'
+LOGOUT_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'ironqueens.wsgi.application'
 
