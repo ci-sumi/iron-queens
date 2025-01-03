@@ -1,1 +1,20 @@
-{% extends "allauth/layouts/entrance.html" %}
+{% extends "base.html" %}
+{% block extra_corecss %}
+
+
+{% endblock %}
+{% block content %}
+<div class="container-fluid header-container" style="padding-top: 80px; padding-bottom: 50px;margin-top:100px;">
+    <div class="overlay">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="allauth-form-inner-content">
+                    {% block inner_content %}
+                    <!-- Your signup form content goes here -->
+                    {% endblock inner_content %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
