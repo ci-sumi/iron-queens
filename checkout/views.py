@@ -9,6 +9,8 @@ from .models import Order, OrderLineItem
 from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth.models import User
+from .models import UserProfile
+from profiles.forms import UserProfileForm 
 import json
 
 
@@ -91,8 +93,24 @@ def checkout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
-    print(intent)
-    orderform = OrderForm()
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            orderform = OrderForm(initial={
+                'full_name': profile.user.get_full_name(),
+                'email': profile.user.email,
+                'phone_number': profile.default_phone_number,
+                'street_address1': profile.default_street_address1,
+                'street_address2': profile.default_street_address2,
+                'town_or_city': profile.default_town_or_city,
+                'postcode': profile.default_postcode,
+                'county': profile.default_county,
+                'country': profile.default_country,
+            })
+        except UserProfile.DoesNotExist:
+            orderform = OrderForm()
+    else:
+        orderform = OrderForm()
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. Did you forget to set it in your environment?')
     template = 'checkout/checkout.html'
@@ -107,10 +125,24 @@ def checkout(request):
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = Order.objects.get(order_number=order_number)
-    # if request.user.is_authenticated:
-    #     profile = request.user.profile
-    #     order.user_profile = profile
-    #     order.save()
+    profile = UserProfile.objects.get(user=request.user)
+    order.user_profile = profile
+    order.save()
+    if save_info:
+        profile_data = {
+            'default_full_name': order.full_name,
+            'default_email': order.email,
+            'default_phone_number': order.phone_number,
+            'default_street_address1': order.street_address1,
+            'default_street_address2': order.street_address2,
+            'default_town_or_city': order.town_or_city,
+            'default_postcode': order.postcode,
+            'default_county': order.county,
+            'default_country': order.country,
+        }
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
     messages.success(request, f'Order successfully processed! \
         Your order number is . A confirmation \
         email will be sent to {order.email}.')
