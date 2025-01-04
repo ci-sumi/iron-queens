@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from products.models import Product
 from .models import Order, OrderLineItem
+from profiles.models import UserProfile
 
 # Set up the logger
 logger = logging.getLogger(__name__)
@@ -65,6 +66,20 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
+                
+        profile = None
+        username = intent.metadata.get('username')
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
+                profile.save()
 
         # Check if the order already exists
         order_exists = False
@@ -73,6 +88,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
+                    user_profile=profile,
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
