@@ -6,22 +6,60 @@
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+    <div class="container header-container text-center py-5 bg-light shadow-sm">
+        <h1 class="logo-font">My Profile</h1>
+        <p class="text-muted">Manage your account details and view your order history</p>
     </div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
+    <div class="container my-5">
         <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">My Profile</h2>
-                <hr>
+            <!-- Left Column: Profile Details -->
+            <div class="col-12 col-lg-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">Default Delivery Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn btn-dark btn-block mt-3">Update Information</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Order History -->
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">Order History</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if orders %}
+                            <ul class="list-group">
+                                {% for order in orders %}
+                                    <li class="list-group-item">
+                                        <strong>Order #{{ order.id }}</strong> 
+                                        <span class="float-right text-muted">{{ order.date }}</span>
+                                        <br>
+                                        Total: {{ order.total }} {{ order.currency }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="text-muted">No orders found.</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
-        {{ profile }}
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

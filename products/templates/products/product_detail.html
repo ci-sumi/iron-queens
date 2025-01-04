@@ -50,10 +50,13 @@
             </p>
 
             <!-- Add to Cart and Back Button -->
+            <form action="{% url 'add_to_bag' product.id %}" method="POST">
+                {% csrf_token %}
             <div class="d-flex justify-content-between align-items-center mt-4">
                 <a href="{% url 'products' %}" class="btn btn-outline-dark">Back to Products</a>
                 <button class="btn btn-primary">Add to Cart</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

@@ -215,5 +215,48 @@ footer .row p {
     padding: 1rem;
 }
 
+.header-container {
+    /* background: linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url('/static/images/profile-bg.jpg'); */
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-header {
+    border-bottom: none;
+    font-weight: bold;
+}
+
+.card-body {
+    font-size: 0.95rem;
+}
+
+.btn-dark {
+    background-color: #343a40;
+    border: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #495057;
+}
+
+.list-group-item {
+    font-size: 0.9rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.list-group-item strong {
+    color: #212529;
+}
 
 
