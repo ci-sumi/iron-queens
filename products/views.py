@@ -82,3 +82,17 @@ def add_product(request):
     else:
         form = ProductForm()
     return render(request, 'products/add_product.html', {'form': form})
+
+def edit_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product updated successfully')
+            return redirect('products')
+        else:
+            messages.error(request, 'Failed to update product')
+    else:
+        form = ProductForm(instance=product)
+    return render(request, 'products/edit_product.html', {'form': form, 'product': product})
