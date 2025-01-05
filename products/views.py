@@ -1,7 +1,8 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from .models import Product, Category
 from django.db.models import Q
 from django.contrib import messages
+from .forms import ProductForm
 
 
 
@@ -65,3 +66,19 @@ def product_detail(request,id):
         
     }
     return render(request,'products/product_detail.html',context)
+
+
+from .forms import ProductForm
+
+def add_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product added successfully')
+            return redirect('products')
+        else:
+            messages.error(request, 'Failed to add product')
+    else:
+        form = ProductForm()
+    return render(request, 'products/add_product.html', {'form': form})
