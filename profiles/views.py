@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from django.contrib import messages
 
 from checkout.models import Order
 
 from .models import UserProfile
-from .forms import UserProfileForm
+from .forms import UserProfileForm,ContactForm
 
 
 def profile(request):
@@ -46,3 +46,16 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Thank you for your message. We will get back to you soon!')
+            return redirect('contact')
+        else:
+            messages.error(request, 'Failed to send message')
+    else:
+        form = ContactForm()
+    return render(request, 'profiles/contact.html', {'form': form})
