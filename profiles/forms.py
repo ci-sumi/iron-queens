@@ -1,5 +1,6 @@
 from django import forms
 from .models import UserProfile
+from .models import Contact
 
 
 
@@ -30,4 +31,10 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].label = False
                 
                 
-        
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'enquiry_type', 'message']
+        widgets = {
+            'enquiry_type': forms.Select(attrs={'class': 'form-control border-black rounded-0'}),
+        }
