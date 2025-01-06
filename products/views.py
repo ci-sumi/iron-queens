@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404,redirect
+from django.shortcuts import render,get_object_or_404,redirect,reverse
 from .models import Product, Category
 from django.db.models import Q
 from django.contrib import messages
@@ -83,8 +83,8 @@ def add_product(request):
         form = ProductForm()
     return render(request, 'products/add_product.html', {'form': form})
 
-def edit_product(request, id):
-    product = get_object_or_404(Product, pk=id)
+def edit_product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -96,3 +96,14 @@ def edit_product(request, id):
     else:
         form = ProductForm(instance=product)
     return render(request, 'products/edit_product.html', {'form': form, 'product': product})
+
+def delete_product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        product.delete()
+        messages.success(request, 'Product deleted successfully')
+        return redirect('products')
+    return render(request, 'products/delete_product.html', {'product': product})
+    
+    
+   
