@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 pt-5">
+    <h1 class="mb-4">Edit Testimonial</h1>
+
+    <div class="form-wrapper" style="margin-top: 50px;">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- This will render the form fields -->
+
+            <button type="submit" class="btn btn-success">Update Testimonial</button>
+            <a href="{% url 'view_testimonials' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center mb-4">Our Services & Testimonials</h1>
+
+        <!-- Add Testimonial Button -->
+        <div class="d-flex justify-content-center mb-4">
+            <a href="{% url 'add_testimonial' %}" class="btn btn-primary btn-lg">
+                <i class="fas fa-plus-circle"></i> Add Testimonial
+            </a>
+        </div>
+
+        <div class="row">
+            {% for testimonial in testimonials %}
+                <div class="col-md-4">
+                    <div class="testimonial card mb-4 p-3 border-light shadow-sm">
+                        <div class="card-body">
+                            <!-- Highlighted Service Name at the Top -->
+                            <div class="testimonial-service mt-2 mb-3">
+                                <strong class="text-primary">{{ testimonial.service.name }}</strong>
+                            </div>
+
+                            <!-- Quoted content -->
+                            <p class="testimonial-content mb-3">"{{ testimonial.content }}"</p>
+                            <div class="testimonial-author">
+                                <strong>{{ testimonial.user.username }}</strong> | <small>{{ testimonial.created_at|date:"F d, Y" }}</small>
+                            </div>
+
+                            <!-- Edit and Delete buttons only visible to the owner of the testimonial -->
+                            {% if testimonial.user == request.user %}
+                                <div class="testimonial-actions mt-3">
+                                    <a href="{% url 'edit_testimonial' testimonial.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="{% url 'delete_testimonial' testimonial.id %}" class="btn btn-danger btn-sm">Delete</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-center text-muted">No testimonials yet. Be the first to add one!</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
