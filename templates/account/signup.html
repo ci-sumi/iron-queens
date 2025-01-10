@@ -1,64 +1,61 @@
 {% extends "account/base_entrance.html" %}
-{% load allauth i18n %}
+{% load i18n %}
 
-{% block head_title %}
-    {% trans "Sign Up" %}
-{% endblock head_title %}
+{% block extra_title %}Iron Queens | Sign Up{% endblock %}
+{% block head_title %}{% trans "Sign Up" %}{% endblock %}
 
-{% block content %}
-    <div class="auth-container">
-        <div class="auth-box">
-            <h2 class="logo-font mb-4 text-center">{% trans "Sign Up" %}</h2>
-            <hr class="divider">
+{% block inner_content %}
+<section class="auth-container d-flex align-items-center justify-content-center min-vh-100 bg-white">
+    <div class="auth-box bg-white shadow-lg p-4 rounded" style="max-width: 400px; width: 100%;">
+        <!-- Title -->
+        <h2 class="logo-font mb-4 text-center text-uppercase text-primary">{% trans "Sign Up" %}</h2>
+        <hr class="divider mb-4">
 
-            {% setvar link %}
-                <a href="{{ login_url }}">
-            {% endsetvar %}
-            {% setvar end_link %}
-            </a>
-            {% endsetvar %}
+        <!-- Already have an account -->
+        <p class="text-center text-muted">
+            {% blocktrans %}Already have an account? 
+            <a href="{{ login_url }}" class="text-primary">Sign in</a>.{% endblocktrans %}
+        </p>
 
-            <p class="text-center">
-                {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
-            </p>
-
-            {% if not SOCIALACCOUNT_ONLY %}
-                {% url 'account_signup' as action_url %}
-                <form method="post" action="{{ action_url }}">
-                    {% csrf_token %}
-                    <div class="form-container">
-                        {% for field in form %}
-                            <div class="form-group">
-                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                                {{ field }}
-                                {% if field.errors %}
-                                    <div class="error">{{ field.errors }}</div>
-                                {% endif %}
-                            </div>
-                        {% endfor %}
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">
-                            {% trans "Sign Up" %}
-                        </button>
-                    </div>
-                </form>
-            {% endif %}
-
-            {% if PASSKEY_SIGNUP_ENABLED %}
-                <hr>
-                <button class="btn btn-outline-primary">
-                    {% trans "Sign up using a passkey" %}
-                </button>
-            {% endif %}
-
-            {% if SOCIALACCOUNT_ENABLED %}
-                <div class="social-login-container">
-                    <p>{% trans "Or sign up using your social account" %}</p>
-                    {% include "socialaccount/snippets/login.html" %}
+        <!-- Sign-Up Form -->
+        <form class="signup-form mt-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            <div class="form-container">
+                <!-- Form Fields with Validation -->
+                {% for field in form %}
+                <div class="form-group mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="error text-danger small">
+                            {% for error in field.errors %}
+                                <p class="mb-0">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
-            {% endif %}
-        </div>
+                {% endfor %}
+
+                <!-- Non-Field Errors -->
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                        <p class="mb-0">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+
+                <!-- Action Buttons -->
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <a class="btn btn-outline-secondary rounded-0" href="{% url 'account_login' %}">Back to Login</a>
+                    <button type="submit" class="btn btn-primary px-4">{% trans "Sign Up" %}</button>
+                </div>
+            </div>
+        </form>
     </div>
-{% endblock content %}
+</section>
+{% endblock %}

@@ -1,25 +1,53 @@
-{% extends "account/base_manage.html" %}
+{% extends "account/base_entrance.html" %}
 {% load i18n %}
-{% load allauth %}
-{% block head_title %}
-    {% trans "Verify Your Email Address" %}
-{% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% trans "Verify Your Email Address" %}
-    {% endelement %}
-    {% url 'account_email' as email_url %}
-    {% element p %}
-        {% blocktrans %}This part of the site requires us to verify that
-you are who you claim to be. For this purpose, we require that you
-verify ownership of your email address. {% endblocktrans %}
-    {% endelement %}
-    {% element p %}
-        {% blocktrans %}We have sent an email to you for
-verification. Please click on the link inside that email. If you do not see the verification email in your main inbox, check your spam folder. Otherwise
-contact us if you do not receive it within a few minutes.{% endblocktrans %}
-    {% endelement %}
-    {% element p %}
-        {% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your email address</a>.{% endblocktrans %}
-    {% endelement %}
-{% endblock content %}
+
+{% block extra_title %}Iron Queens | Verify Your E-mail{% endblock %}
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block inner_content %}
+<section class="auth-container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="auth-box bg-white shadow-lg p-4 rounded text-center" style="max-width: 500px; width: 100%;">
+        <!-- Title -->
+        <h2 class="logo-font mb-4 text-uppercase text-primary">{% trans "Verify Your E-mail Address" %}</h2>
+        <hr class="divider mb-4">
+
+        <!-- Instructions -->
+        <p class="text-muted">
+            {% blocktrans %}To access this part of the site, we need to verify your identity by confirming ownership of your e-mail address.{% endblocktrans %}
+        </p>
+        <p class="text-muted">
+            {% blocktrans %}We’ve sent an e-mail to the address you provided. Please click the verification link in that email to complete the process. If you don’t receive the email within a few minutes, check your spam folder or contact us for assistance.{% endblocktrans %}
+        </p>
+
+        <!-- Email Change Option -->
+        <p class="text-muted mt-4">
+            {% url 'account_email' as email_url %}
+            {% blocktrans %}<strong>Need to update your email address?</strong> You can <a href="{{ email_url }}" class="text-primary">change it here</a>.{% endblocktrans %}
+        </p>
+
+        <!-- Back to Home Button -->
+        <div class="mt-4">
+            <a href="{% url 'my_view' %}" class="btn btn-outline-primary px-4">{% trans "Back to Home" %}</a>
+        </div>
+    </div>
+</section>
+
+{% block extra_css %}
+<style>
+    /* Ensure all parent containers are transparent */
+    body, html {
+        background-color: transparent !important;
+    }
+
+    /* Remove background from auth-container */
+    .auth-container {
+        background-color: transparent !important;
+    }
+
+    /* Target additional parent containers if needed */
+    .min-vh-100 {
+        background-color: transparent !important;
+    }
+</style>
+{% endblock %}
+{% endblock %}
