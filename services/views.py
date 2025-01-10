@@ -99,13 +99,12 @@ def edit_testimonial(request,id):
 def delete_testimonial(request, id):
     testimonial = get_object_or_404(Testimonial, pk=id)
     if request.method == 'POST':
-        if testimonial.user != request.user:
-            messages.error(request, 'You do not have permission to delete this testimonial')
-            return redirect('view_testimonials')
-        testimonial.delete()
-        messages.success(request, 'Testimonial deleted successfully')
+        if testimonial.user == request.user:
+            testimonial.delete()
+            messages.success(request, 'Testimonial deleted successfully.')
+        else:
+            messages.error(request, 'You do not have permission to delete this testimonial.')
         return redirect('view_testimonials')
     else:
-        messages.error(request, 'Failed to delete testimonial')
-        
-    return render(request, 'services/delete_testimonial.html', {'testimonial': testimonial})
+        messages.error(request, 'Invalid request method.')
+        return redirect('view_testimonials')
