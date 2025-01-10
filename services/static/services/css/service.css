@@ -1,0 +1,92 @@
+/* General Styles */
+.container {
+    padding-top: 8rem; /* Ensures content is pushed down for large screens */
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #007bff; /* Primary color */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Form Wrapper Styling */
+.form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Fields */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons Styling */
+.btn-lg {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Heading font size */
+    h1 {
+        font-size: 2rem;
+    }
+
+    /* Form wrapper padding for smaller screens */
+    .form-wrapper {
+        padding: 20px;
+    }
+
+    /* Reduce button size */
+    .btn-lg {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Container padding */
+    .container {
+        padding-top: 4rem; /* Less padding on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust font size for even smaller screens */
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Further reduce button size for small devices */
+    .btn-lg {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
