@@ -1,0 +1,135 @@
+.card {
+    border: 2px solid #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border: 2px solid orange;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 20px;
+    background: linear-gradient(135deg, #ffb347, #ffcc33);
+    color: white;
+    border-radius: 8px;
+}
+
+.card:hover .card-body {
+    background: linear-gradient(135deg, #ffcc80, #ff8a65); 
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.product-rating i {
+    color: #ffcc00;
+    transition: color 0.3s ease;
+}
+
+.card:hover .product-rating i {
+    color: #FFD699;
+}
+
+.card-footer {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.card-footer a {
+    padding: 10px 20px;
+    background-color: #FFD699 ;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card-footer a:hover {
+    background-color: #F39C12;
+}
+
+/* Card Styling */
+.product-image {
+    max-height: 300px; /* Adjust height to make the image smaller */
+    object-fit: contain; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.product-name {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem; /* Larger font for product name */
+    font-weight: 600; /* Bold text */
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 500; /* Bold text for price */
+    color: #28a745; /* Green color for price */
+}
+
+.product-rating i {
+    color: black; /* Star color */
+    font-size: 1rem;
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-body img {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.close {
+    font-size: 1.5rem;
+    color: #000;
+}
+
+/* Button Styling */
+.btn-back, .btn-cart {
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 25px; /* Rounded buttons */
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
