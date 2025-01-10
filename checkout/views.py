@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect,HttpResponse
+from django.shortcuts import render,redirect,HttpResponse, get_object_or_404
 from django.views.decorators.http import require_POST
 from .forms import OrderForm
 from django.contrib import messages
@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from .models import UserProfile
 from profiles.forms import UserProfileForm 
 import json
+from django.contrib.auth.models import AnonymousUser
 
 
 @require_POST
@@ -124,10 +125,15 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
-    order = Order.objects.get(order_number=order_number)
-    profile = UserProfile.objects.get(user=request.user)
-    order.user_profile = profile
-    order.save()
+    order = get_object_or_404(Order,order_number=order_number)
+     #Handle anonymous and authenticated users
+    if isinstance(request.user, AnonymousUser):
+        profile = None  # No profile for anonymous users
+    else:
+        profile = UserProfile.objects.get(user=request.user)
+        order.user_profile = profile
+        order.save()
+    
     if save_info:
         profile_data = {
             'default_full_name': order.full_name,
