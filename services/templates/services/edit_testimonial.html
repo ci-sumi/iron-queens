@@ -1,17 +1,45 @@
 {% extends "base.html" %}
+{% load static %}%
+{% block extra_corecss %}
+
+<link href="{% static 'services/css/service.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
-<div class="container mt-5 pt-5">
-    <h1 class="mb-4">Edit Testimonial</h1>
+<div class="container mt-5" style="padding-top: 12rem;">
+    <!-- Add Heading -->
+    <h1 class="mb-4 text-center text-primary">Edit Testimonial</h1>
 
-    <div class="form-wrapper" style="margin-top: 50px;">
+    <!-- Display Messages (if any) -->
+    {% if messages %}
+        <div class="alert alert-info">
+            <ul class="messages mb-0">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <!-- Form Wrapper (Centered and Pushed Down) -->
+    <div class="form-wrapper mt-5" style="max-width: 600px; margin: 0 auto; background-color: #f9f9f9; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}  <!-- This will render the form fields -->
 
-            <button type="submit" class="btn btn-success">Update Testimonial</button>
-            <a href="{% url 'view_testimonials' %}" class="btn btn-secondary">Cancel</a>
+            <!-- Form Fields -->
+            <div class="form-group mb-4">
+                {{ form.as_p }}
+            </div>
+
+            <!-- Submit and Cancel Buttons (Centered) -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg" style="margin-bottom: 2rem;">Update Testimonial</button>
+                <a href="{% url 'view_testimonials' %}" class="btn btn-secondary btn-lg ml-3" style="margin-bottom:2rem;">Cancel</a>
+            </div>
         </form>
     </div>
 </div>
 {% endblock %}
+

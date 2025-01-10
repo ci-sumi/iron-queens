@@ -1,9 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extra_corecss %}
+
+<link href="{% static 'services/css/service.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
-<div class="container mt-5 pt-5">
+<div class="container mt-5" style="padding-top: 12rem;">
     <!-- Add Heading -->
-    <h1 class="mb-4 text-center">Add a Testimonial</h1>
+    <h1 class="mb-4 text-center text-primary">Add a Testimonial</h1>
 
     <!-- Display Messages (if any) -->
     {% if messages %}
@@ -19,21 +24,23 @@
     {% endif %}
 
     <!-- Form Wrapper (Centered and Pushed Down) -->
-    <div class="form-wrapper mt-5" style="max-width: 600px; margin: 0 auto;">
+    <div class="form-wrapper mt-5" style="max-width: 600px; margin: 0 auto; background-color: #f9f9f9; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
         <form method="POST">
             {% csrf_token %}
-            
+
             <!-- Form Fields -->
-            <div class="form-group mb-3">
+            <div class="form-group mb-4">
                 {{ form.as_p }}
             </div>
 
             <!-- Submit and Cancel Buttons (Centered) -->
             <div class="text-center">
-                <button type="submit" class="btn btn-success">Submit Testimonial</button>
-                <a href="{% url 'view_testimonials' %}" class="btn btn-secondary ml-3">Cancel</a>
+                <button type="submit" class="btn btn-primary btn-lg" style="margin-bottom: 2rem;">Submit Testimonial</button>
+                <a href="{% url 'view_testimonials' %}" class="btn btn-secondary btn-lg ml-3" style="margin-bottom:2rem;">Cancel</a>
             </div>
         </form>
     </div>
 </div>
 {% endblock %}
+
+
