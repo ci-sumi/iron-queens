@@ -1,29 +1,33 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block extra_corecss %}
 <link href="{% static 'css/base.css' %}" rel="stylesheet">
 <link href="{% static 'css/index.css' %}" rel="stylesheet">
+<link href="{% static 'products/css/customize.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block page_header %}
 {% endblock %}
 
 {% block content %}
-
-<div class="container py-5">
+<div class="container py-5" style="margin-top: 6rem;">
     <div class="row">
         <!-- Product Image Section -->
         <div class="col-md-6 d-flex justify-content-center mb-4" style="margin-top: 80px;">
             <!-- Clickable image to open in Modal -->
             <a href="#" data-toggle="modal" data-target="#productImageModal">
-                <img src="{{ product.image.url }}" class="img-fluid rounded shadow-lg" alt="{{ product.name }}" style="max-height: 500px; object-fit: contain;">
+                <img src="{{ product.image.url }}" class="img-fluid rounded shadow-lg product-image" alt="{{ product.name }}">
             </a>
         </div>
 
         <!-- Product Details Section -->
         <div class="col-md-6" style="margin-top: 100px;">
             <!-- Product Name -->
-            <h2 class="text-dark mb-3">{{ product.name }}</h2>
+            <h2 class="text-dark mb-3 product-name">{{ product.name }}</h2>
 
             <!-- Product Price -->
-            <h3 class="text-success mb-3">€{{ product.price }}</h3>
+            <h3 class="text-success mb-3 product-price">€{{ product.price }}</h3>
             
             <!-- Rating Section -->
             <div class="product-rating mb-4">
@@ -49,13 +53,19 @@
                 {% endif %}
             </p>
 
+             <!-- Quantity Input Field -->
+            
+
             <!-- Add to Cart and Back Button -->
             <form action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
-            <div class="d-flex justify-content-between align-items-center mt-4">
-                <a href="{% url 'products' %}" class="btn btn-outline-dark">Back to Products</a>
-                <button class="btn btn-primary">Add to Cart</button>
-            </div>
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" name="quantity" id="quantity" value="1" min="1" class="form-control" style="width: 80px;">
+    
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <a href="{% url 'all_products' %}" class="btn btn-outline-dark btn-back">Back to Products</a>
+                    <button class="btn btn-primary btn-cart">Add to Cart</button>
+                </div>
             </form>
         </div>
     </div>

@@ -3,22 +3,31 @@
 {% block extra_corecss %}
 <link href="{% static 'css/base.css' %}" rel="stylesheet">
 <link href="{% static 'css/index.css' %}" rel="stylesheet">
+<link href="{% static 'products/css/customize.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-
-<div class="container py-5">
-    <h2 class="text-center mb-4">Our Products</h2>
+<div class="container py-5" style="margin-top: 12rem;">
+    <!-- Dynamic Header -->
+    <h1 class="text-center mb-5" style="font-size: 2.5rem; font-weight: bold;">
+        {% if selected_category %}
+            {{ selected_category|title }}
+        {% else %}
+            All IronQueen Products
+        {% endif %}
+    </h1>
     <div style="margin-top: 100px;">
+        
         <!-- Sorting Dropdown -->
         <form method="get" class="d-inline">
+            {% if selected_category %}
+            <input type="hidden" name="category" value="{{ selected_category }}">
+            {% endif %}
             <label for="sort" class="me-2">Sort By:</label>
             <select name="sort" id="sort" class="form-select d-inline-block w-auto" onchange="this.form.submit()">
-                <option value="" {% if not selected_sort %}selected{% endif %}>sort by...</option>
-                <option value="low_to_high" {% if selected_sort == 'low_to_high' %}selected{% endif %}>Price: Low
-                    to High</option>
-                <option value="high_to_low" {% if selected_sort == 'high_to_low' %}selected{% endif %}>Price: High
-                    to Low</option>
+                <option value="" {% if not selected_sort %}selected{% endif %}>Sort by...</option>
+                <option value="low_to_high" {% if selected_sort == 'low_to_high' %}selected{% endif %}>Price: Low to High</option>
+                <option value="high_to_low" {% if selected_sort == 'high_to_low' %}selected{% endif %}>Price: High to Low</option>
                 <option value="name_a_z" {% if selected_sort == 'name_a_z' %}selected{% endif %}>Name: A to Z</option>
                 <option value="name_z_a" {% if selected_sort == 'name_z_a' %}selected{% endif %}>Name: Z to A</option>
             </select>
@@ -31,7 +40,7 @@
     {% for product in products %}
     <div class="col-md-3 mb-4">
         <a href="{% url 'product_detail' product.id %}" class="card-link">
-            <div class="card shadow-sm h-100">
+            <div class="card shadow-sm h-100" style="border: 2px solid orange;">
                 <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ product.name }}</h5>
@@ -62,10 +71,9 @@
 </div>
 </div>
 {% endblock %}
-{% if messages %}
 
+{% if messages %}
 {% for message in messages %}
 <p class="alert alert-warning">{{ message }}</p>
 {% endfor %}
-
 {% endif %}
