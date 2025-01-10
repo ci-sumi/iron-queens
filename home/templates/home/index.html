@@ -14,29 +14,42 @@
                 Discover the ultimate shopping experience! Explore our curated collection, enjoy premium services, and join our exclusive community.
             </p>
             <div class="mt-4">
-                <a href="#" class="btn btn-primary btn-lg me-3">Shop Now</a>
+                <a href="{% static 'all_products'%}" class="btn btn-primary btn-lg me-3">Shop Now</a>
                 <a href="#services" class="btn btn-outline-secondary btn-lg">View Services</a>
             </div>
         </div>
 
         <!-- Right Column: Image -->
         <div class="col-lg-6 text-center">
-            <img src="{% static 'media/myhero.webp' %}" class="img-fluid rounded" alt="About Our Brand" style="max-width:auto;height: auto;  object-fit:fixed;">
+            <img src="{% static 'media/myhero.webp' %}" 
+                 class="img-fluid rounded shadow-lg" 
+                 alt="About Our Brand" 
+                 style="max-width: 100%; 
+                        height: auto; 
+                        border-radius: 20px; 
+                        object-fit: cover; 
+                        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;">
+        </div>
+        
         </div>
     </div>
 </div>
 <div class="row mt-5">
     <div class="col-12">
-        <h2 class="text-center fw-bold mb-4">Who We Are</h2>
-        <p class="text-center" style="font-size: 1.2rem;">
-            <span class="fw-bold fs-4">At Iron Queens,</span> we are dedicated to empowering women through <span class="fw-bold fs-5"> high-quality gym equipment and fitness solutions</span> designed for strength and performance. 
-            Our products are crafted to inspire confidence and support a strong, active lifestyle.
+        <h2 class="text-center fw-bold mb-4" style="font-family: 'Poppins', sans-serif; font-size: 2rem; color: #343a40;">
+            Empowering Women Through Fitness
+        </h2>
+        <p class="text-center" style="font-family: 'Roboto', sans-serif; font-size: 1.2rem; line-height: 1.8; color: #6c757d; max-width: 800px; margin: 0 auto;">
+            <span style="font-weight: 700; font-size: 1.5rem; color: #f8c032;">At Iron Queens,</span> 
+            we are dedicated to empowering women through 
+            <span style="font-weight: 600; font-size: 1.3rem;">high-quality gym equipment and fitness solutions</span> 
+            designed for strength and performance. Our products are crafted to inspire confidence and support a strong, active lifestyle.
             Whether you're just starting your fitness journey or are a seasoned athlete, our range of gym equipment is built to meet the needs of women who want to achieve their personal best. 
-            We’re here to provide the tools and motivation for every woman to feel <span class="fw-bold fs-5">strong, capable, and confident.</span>
-            
-            
+            We’re here to provide the tools and motivation for every woman to feel 
+            <span style="font-weight: 600; font-size: 1.3rem; color: #f8c032;">strong, capable, and confident.</span>
         </p>
     </div>
 </div>
+
 
 {% endblock %}
