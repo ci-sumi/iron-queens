@@ -30,6 +30,7 @@ def all_products(request):
     if category:
         products = products.filter(category__name=category)
     
+    
     # Apply sorting if provided
     if sort:
         if sort == 'low_to_high':
@@ -43,7 +44,7 @@ def all_products(request):
             products = products.order_by('-name')  # Sort by name (Z to A)
     
     # If no products are found, display a message
-    if not products.exists():
+    if query and not products.exists():
         messages.error(request, 'No results found')
 
     # Prepare context for the template
