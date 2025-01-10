@@ -7,73 +7,78 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container py-5" style="margin-top: 12rem;">
     <h1>Shopping Cart</h1>
     {% if bag_items %}
-    <table class="table table-striped" style="margin-top: 100PX;">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>SKU</th>
-                <th>Product</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in bag_items %}
-            <tr>
-                <!-- Product Image -->
-                <td>
-                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-thumbnail" style="width: 80px; height: auto;">
-                </td>
-                <!-- Product SKU -->
-                <td>{{ item.product.sku }}</td>
-                <!-- Product Name -->
-                <td>{{ item.product.name }}</td>
-                <!-- Unit Price -->
-                <td>${{ item.product.price }}</td>
-                <!-- Quantity -->
-                <td>
-                    <form action="{% url 'update_bag' item.product.id %}" method="POST">
-                        {% csrf_token %}
-                        <input type="number" name="quantity" value="{{ item.item_quantity }}" min="1" class="form-control form-control-sm" style="width: 100px;" required>
-                        <button type="submit" class="btn btn-link p-0">
-                            <i class="fas fa-sync-alt" title="Update Quantity"></i>
-                        </button>
-                    </form>
-                </td>
-                <!-- Total Price -->
-                <td>${{ item.item_total }}</td>
-                <td>
-                    <form action="{% url 'remove_from_bag' item.product.id %}" method="POST">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-link p-0">
-                            <i class="fas fa-times" title="Remove from Bag"></i>
-                        </button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>SKU</th>
+                    <th>Product</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in bag_items %}
+                <tr>
+                    <!-- Product Image -->
+                    <td>
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-thumbnail" style="width: 80px; height: auto;">
+                    </td>
+                    <!-- Product SKU -->
+                    <td>{{ item.product.sku }}</td>
+                    <!-- Product Name -->
+                    <td>{{ item.product.name }}</td>
+                    <!-- Unit Price -->
+                    <td>${{ item.product.price }}</td>
+                    <!-- Quantity -->
+                    <td>
+                        <form action="{% url 'update_bag' item.product.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="number" name="quantity" value="{{ item.item_quantity }}" min="1" class="form-control form-control-sm" required>
+                            <button type="submit" class="btn btn-link">
+                                <i class="fas fa-sync-alt" title="Update Quantity"></i>
+                            </button>
+                        </form>
+                    </td>
+                    <!-- Total Price -->
+                    <td>${{ item.item_total }}</td>
+                    <!-- Remove Button -->
+                    <td>
+                        <form action="{% url 'remove_from_bag' item.product.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="fas fa-times" title="Remove from Bag"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <div class="cart-summary text-end mt-4">
         <h5><strong>Bag Total:</strong> ${{ total }}</h5>
-        <h5><strong>Delivery:</strong> ${{ delivery}}</h5>
+        <h5><strong>Delivery:</strong> ${{ delivery }}</h5>
         {% if free_delivery_delta > 0 %}
             <p class="text-muted">Spend ${{ free_delivery_delta }} more to qualify for free delivery.</p>
         {% endif %}
         <hr>
         <h4><strong>Grand Total:</strong> ${{ grand_total }}</h4>
         <a href="{% url 'checkout' %}" class="btn btn-success mt-3">Proceed to Checkout</a>
-        <a href="#" class="btn btn-success mt-3">Keep Shopping</a>
+        <a href="{% url 'all_products' %}" class="btn btn-primary mt-3">Keep Shopping</a>
     </div>
     {% else %}
     <div class="text-center">
         <p>Your shopping cart is empty.</p>
-        <a href="{% url 'products' %}" class="btn btn-primary">Continue Shopping</a>
+        <a href="{% url 'all_products' %}" class="btn btn-primary">Continue Shopping</a>
     </div>
     {% endif %}
 </div>
+
 {% endblock %}
