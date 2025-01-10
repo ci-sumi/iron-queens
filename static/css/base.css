@@ -75,12 +75,12 @@ form i {
 
 /* Profile Dropdown */
 .navbar .dropdown-menu {
-    background-color: #343a40; /* Match dropdown menu to navbar */
+    background-color: white /* Match dropdown menu to navbar */
 }
 
 .navbar .dropdown-item {
-    color: #ffffff !important;
-    padding: 12px 20px;
+    color: orange !important;
+    padding: 12px 15px;
     font-size: 1rem;
 }
 
@@ -97,11 +97,18 @@ footer {
     padding-bottom: 0px;
     width: 100%; /* Adjust width as needed */
     margin: 0 auto;    /* Center the footer */
-    border-radius: 10px; /* Optional: Add rounded corners */
+    border-radius: 0px;
+    border-color: orange; /* Optional: Add rounded corners */
 }
 .btn-outline-light {
-    color: red !important;
+    color:#003366!important;
 }
+.bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: orange!important;
+      /* Set the border color to orange */
+}
+
 
 footer h4,
 footer h5 {
@@ -126,7 +133,7 @@ footer .form-control {
 }
 
 footer .btn-primary {
-    background-color: #f8c032;
+    background-color: orange;
     border: none;
     border-radius: 25px;
     color: #343a40;
@@ -134,8 +141,9 @@ footer .btn-primary {
 }
 
 footer .btn-primary:hover {
-    background-color: #343a40;
-    color: #f8c032;
+    
+    background-color: orange;
+    color: white;
 }
 
 footer .social-media a {
@@ -224,19 +232,57 @@ footer .row p {
     border-radius: 10px;
 }
 
-.card {
+.btn-back {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 2px solid #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-cart {
+    background-color: #ff8c00; /* Orange color */
+    color: white;
     border: none;
-    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.card-header {
-    border-bottom: none;
+.btn-cart:hover {
+    background-color: #e67e22;
+    transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Spacing and Layout Adjustments */
+.container {
+    max-width: 1200px; /* Limit the width */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-md-6 {
+    margin-bottom: 20px;
+}
+
+h1.logo-font {
+    font-family: 'Georgia', serif;
     font-weight: bold;
+    font-size: 2.5rem;
+    color: #333;
 }
 
-.card-body {
-    font-size: 0.95rem;
+/* Modal overlay */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.7) !important;
 }
+
+
 
 .btn-dark {
     background-color: #343a40;
@@ -259,4 +305,56 @@ footer .row p {
     color: #212529;
 }
 
+
+  /* Optional: Adjust card hover effect for different screen sizes */
+  @media (max-width: 768px) {
+    .product-card:hover .card {
+      transform: translateY(0); /* Disable hover effect for small screens */
+    }
+  }
+  /* Hide logo on small screens */
+@media (max-width: 767px) {
+    .logo-container {
+        display: none;
+    }
+
+    /* Adjust search bar and icons container */
+    .d-flex.align-items-center {
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+/* Ensure proper alignment when logo is visible */
+@media (min-width: 768px) {
+    .d-flex.align-items-center {
+        justify-content: flex-end;
+    }
+}
+
+  /* Custom dropdown menu styling */
+  .dropdown-menu {
+    background-color: #007bff; /* Change to your preferred background color */
+    color: white; /* Change text color */
+    border-radius: 8px; /* Optional: Rounded corners for the dropdown */
+    padding: 10px 0; /* Optional: Add some padding for better spacing */
+}
+
+/* Hover effect for items inside the dropdown */
+.dropdown-item:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+    color: white; /* Keep text white when hovered */
+}
+
+/* Focus effect for items inside the dropdown */
+.dropdown-item:focus {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Optional: Change active item color */
+.dropdown-item.active {
+    background-color: #004085; /* Darker color for active state */
+    color: white;
+}
 
