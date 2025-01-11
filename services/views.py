@@ -3,13 +3,17 @@ from django.contrib import messages
 from .models import Service,Testimonial
 from .forms import ServiceForm,TestimonialForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
+def superuser_check(user):
+    return user.is_superuser
 
 def services(request):
     services = Service.objects.all()
     return render(request, 'services/services.html', {'services': services})
 
+@user_passes_test(superuser_check)
 def add_service(request):
     if request.method == 'POST':
         form = ServiceForm(request.POST, request.FILES)
@@ -24,6 +28,7 @@ def add_service(request):
 
     return render(request, 'services/add_service.html', {'form': form})
 
+@user_passes_test(superuser_check)
 def edit_service(request,id):
     service = get_object_or_404(Service, pk=id)
 
@@ -41,6 +46,7 @@ def edit_service(request,id):
     return render(request, 'services/edit_service.html', {'form': form,'service': service})
 
 
+@user_passes_test(superuser_check)
 def delete_service(request, id):
     service = get_object_or_404(Service, pk=id)
     if request.method == 'POST':
