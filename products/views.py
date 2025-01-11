@@ -3,12 +3,16 @@ from .models import Product, Category
 from django.db.models import Q
 from django.contrib import messages
 from .forms import ProductForm
+from django.contrib.auth.decorators import user_passes_test
 
 
 
 # Create your views here.
 from django.db.models import Q
 from django.contrib import messages
+
+def superuser_check(user):
+    return user.is_superuser
 
 def all_products(request):
     query = request.GET.get('q')  # Search query
@@ -69,21 +73,24 @@ def product_detail(request,id):
     return render(request,'products/product_detail.html',context)
 
 
-from .forms import ProductForm
 
+
+@user_passes_test(superuser_check)
 def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Product added successfully')
-            return redirect('products')
+            return redirect('all_products')
         else:
             messages.error(request, 'Failed to add product')
     else:
         form = ProductForm()
     return render(request, 'products/add_product.html', {'form': form})
 
+
+@user_passes_test(superuser_check)
 def edit_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
@@ -91,19 +98,20 @@ def edit_product(request, product_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Product updated successfully')
-            return redirect('products')
+            return redirect('all_products')
         else:
             messages.error(request, 'Failed to update product')
     else:
         form = ProductForm(instance=product)
     return render(request, 'products/edit_product.html', {'form': form, 'product': product})
 
+@user_passes_test(superuser_check)
 def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         product.delete()
         messages.success(request, 'Product deleted successfully')
-        return redirect('products')
+        return redirect('all_products')
     return render(request, 'products/delete_product.html', {'product': product})
     
     
