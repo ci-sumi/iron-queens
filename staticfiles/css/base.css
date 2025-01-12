@@ -56,11 +56,11 @@ form i {
 
 /* Profile Dropdown */
 .navbar .dropdown-menu {
-    background-color: #343a40; /* Match dropdown menu to navbar */
+    background-color: whitesmoke; /* Match dropdown menu to navbar */
 }
 
 .navbar .dropdown-item {
-    color: #ffffff !important;
+    color: orange !important;
     padding: 12px 20px;
     font-size: 1rem;
 }
@@ -72,46 +72,83 @@ form i {
 
 /* Footer Styling */
 footer {
-    background-color: #343a40;
+    background-color: orange;
     color: #ffffff;
     padding-top: 0px;
     padding-bottom: 0px;
     width: 100%; /* Adjust width as needed */
     margin: 0 auto;    /* Center the footer */
-    border-radius: 10px; /* Optional: Add rounded corners */
-}
-.btn-outline-light {
-    color: red !important;
+    border-radius: 0px; /* Optional: Add rounded corners */
 }
 
-footer h4,
-footer h5 {
-    color: #f8c032; /* Gold color for headings */
+/* General Reset */
+html, body {
+    height: 100%; /* Ensures the page content takes full height */
+    margin: 0; /* Removes default margin */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Ensures content flows vertically */
+}
+
+/* Footer stays at the bottom */
+main {
+    flex: 1; /* Takes up remaining space between header and footer */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #343a40; /* Dark background */
+    color: #ffffff;
+    padding: 20px 0;
+    border-top: 4px solid #6c757d; /* Corrected border color (gray) */
+    border-bottom: 4px solid #6c757d; /* Corrected border color (gray) */
+    position: relative;
+    width: 100%;
+    margin-top: auto; /* Ensures footer stays at the bottom */
+}
+
+/* Optional: Add border to the footer bottom section */
+footer .text-center {
+    border-top: 2px solid #6c757d; /* Corrected border color */
+    padding-top: 10px;
+}
+
+/* Heading and Text Styling in Footer */
+footer h5, footer h4 {
+    color: black; /* Gold color for headings */
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced margin */
 }
 
+.social-icons{
+    color: orange
+}
 footer p {
-    color: #b0b0b0; /* Lighter text for descriptions */
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Smaller text for copyright */
+    color:  #003366; /* Lighter gray for paragraph text */
 }
 
+/* Input Group and Form Control in Footer */
 footer .input-group {
     max-width: 350px;
     margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 footer .form-control {
     border-radius: 25px;
-    padding: 15px;
+    padding: 10px;
 }
 
+/* Button Styling */
 footer .btn-primary {
     background-color: #f8c032;
     border: none;
     border-radius: 25px;
     color: #343a40;
-    padding: 12px 25px;
+    padding: 8px 20px;
 }
 
 footer .btn-primary:hover {
@@ -119,57 +156,83 @@ footer .btn-primary:hover {
     color: #f8c032;
 }
 
-footer .social-media a {
+/* Social Media Icons Styling */
+footer .social-icons a {
     font-size: 20px;
-    color:white;
-    margin-right: 15px;
+    color: white;
+    margin-right: 10px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transition */
 }
 
-footer .social-media a:hover {
-    color: #f8c032; /* Highlight social icons on hover */
+footer .social-icons a:hover {
+    color: #f8c032;
+    transform: scale(1.1); /* Slight zoom effect */
 }
 
-/* Iron Group Section */
+/* Footer Row Images Styling */
 footer .row img {
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
 footer .row img:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: scale(1.05);
 }
 
-/* Footer Bottom */
-footer .row p {
-    font-size: 0.8rem;
-    color: #b0b0b0;
+/* List Inline Styling */
+footer .list-inline {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0;
 }
+
+footer .list-inline-item {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+footer .list-inline-item a {
+    color: #fff;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+footer .list-inline-item a:hover {
+    color: #f8c032; /* Hover effect for links */
+}
+
+/* Social Media Icons Container */
+footer .social-icons {
+    text-align: center;
+    margin-top: 15px;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .navbar-nav {
-        text-align: center;
+    footer h5 {
+        font-size: 1.1rem; /* Slightly larger for smaller screens */
     }
 
-    .navbar-nav .nav-link {
-        font-size: 1rem;
-        padding: 15px 20px;
+    footer p {
+        font-size: 0.85rem;
     }
 
     footer .input-group {
-        width: 90%;
+        width: 80%; /* Wider input fields on small screens */
     }
 
-    footer .social-media {
+    footer .social-icons {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     footer .row img {
-        max-width: 80%;
+        max-width: 70%;
         margin: 0 auto;
     }
 }
+
 
 /* Hover effect for product cards */
 .product-card {
@@ -214,4 +277,52 @@ footer .row p {
       transform: translateY(0); /* Disable hover effect for small screens */
     }
   }
+  /* Hide logo on small screens */
+@media (max-width: 767px) {
+    .logo-container {
+        display: none;
+    }
+
+    /* Adjust search bar and icons container */
+    .d-flex.align-items-center {
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+/* Ensure proper alignment when logo is visible */
+@media (min-width: 768px) {
+    .d-flex.align-items-center {
+        justify-content: flex-end;
+    }
+}
+/* Responsive Search Bar */
+.search-bar-container .search-input {
+    width: 200px; /* Default width */
+}
+
+@media (max-width: 768px) {
+    .search-bar-container .search-input {
+        width: 100px; /* Adjust width for smaller screens */
+    }
+}
+#arrowUp {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease;
+}
+
+#arrowUp:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+}
+
   
