@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
+    <div class="container header-container" style="padding-top: 150px;">
         <div class="row">
             <div class="col"></div>
         </div>
@@ -27,7 +27,7 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'all_products' %}">Cancel</a>
                         <button class="btn btn-black rounded-0" type="submit">Add Product</button>
                     </div>
                 </form>
