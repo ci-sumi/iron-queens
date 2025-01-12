@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'django_countries',
     'profiles',
     'services',
+    'widget_tweaks',
     
 
     
