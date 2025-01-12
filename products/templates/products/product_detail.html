@@ -53,9 +53,6 @@
                 {% endif %}
             </p>
 
-             <!-- Quantity Input Field -->
-            
-
             <!-- Add to Cart and Back Button -->
             <form action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
@@ -67,6 +64,17 @@
                     <button class="btn btn-primary btn-cart">Add to Cart</button>
                 </div>
             </form>
+
+            <!-- Admin Options -->
+            {% if user.is_superuser %}
+            <div class="admin-options mt-4 d-flex gap-2">
+                <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-warning btn-sm flex-grow-1">Edit</a>
+                <form action="{% url 'delete_product' product.id %}" method="post" style="display: inline; flex-grow: 1;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger btn-sm w-100">Delete</button>
+                </form>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
