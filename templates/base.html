@@ -37,92 +37,13 @@
 
 <body>
 
-    <!--Body content-->
-    <header class="container-fluid fixed-top bg-light">
-        <!-- Top Row: Logo, Search Bar, and Icons -->
-        <div class="d-flex justify-content-between align-items-center p-2" style="background-color: #f8f9fa;">
-            <!-- Logo -->
-            <a class="navbar-brand" href="#">
-                <img src="{% static 'media/logo.png' %}" alt="Iron Queens Logo" height="60" width="auto">
-            </a>
     
-            <!-- Search Bar with Icon -->
-            <form method="GET" action="{% url 'products' %}" class="d-flex mb-4">
-                <div class="input-group">
-                    <span class="input-group-text bg-white border-end-0">
-                        <i class="fas fa-search text-muted"></i>
-                    </span>
-                    <input 
-                        type="text" 
-                        name="q" 
-                        class="form-control border-start-0" 
-                        placeholder="Search products..." 
-                        value="{{ request.GET.q }}"
-                    >
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </div>
-            </form>
+<header class="container-fluid fixed-top bg-light">
+       
+        
+{% include 'includes/main-nav.html' %}
     
-            <!-- Profile and Shopping Cart -->
-            <div class="d-flex align-items-center">
-                <!-- Profile Dropdown -->
-                <div class="dropdown me-3">
-                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                        {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="{% url 'add_product'%}" class="dropdown-item">Product Management</a>
-                                {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                    </ul>
-                </div>
-    
-                <!-- Shopping Cart -->
-                <a class="nav-link" href="{% url "view_bag" %}"><i class="fas fa-shopping-cart"></i></a>
-                {{ grand_total }}
-            </div>
-        </div>
-    
-        <!-- Second Row: Navigation Menu -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-top">
-            <div class="container-fluid">
-                <!-- Toggle Button for Collapse -->
-                <button class="navbar-toggler mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-    
-                <!-- Collapsible Menu -->
-                <div class="collapse navbar-collapse" id="navbarMenu">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                           {% include 'includes/main-nav.html'%}
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">The Iron Tribe</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact the Queens</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    
-
+</header>
         
     {% if messages %}
     <div class="message-container">
@@ -148,67 +69,71 @@
     {% block content %}
     {% endblock %}
     {% block footer %}
-    <footer class="bg-dark text-white py-0">
-        <div class="container">
-            <!-- Single Row Footer -->
-            <div class="row align-items-center">
-                <!-- Stay in Touch Section -->
-                <div class="col-md-4 text-center mb-3 mb-md-0">
-                    <h5 class="fw-bold">Stay in Touch</h5>
-                    <p class="small">Subscribe to our newsletter for updates and offers from Iron Queens.</p>
-                    <form class="input-group justify-content-center">
-                        <input type="email" class="form-control w-auto" placeholder="Enter your email" required>
-                        <button class="btn btn-primary" type="submit">Subscribe</button>
-                    </form>
-                </div>
-    
-                <!-- Quick Links Section -->
-                <div class="col-md-4 text-center mb-3 mb-md-0">
-                    <h5 class="fw-bold">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-blue text-decoration-none">Home</a></li>
-                        <li><a href="#" class="text-blue text-decoration-none">Shop Queens' Picks</a></li>
-                        <li><a href="#" class="text-blue text-decoration-none">Services</a></li>
-                        <li><a href="#" class="text-blue text-decoration-none">The Iron Tribe</a></li>
-                        <li><a href="#" class="text-blue text-decoration-none">Contact Us</a></li>
-                    </ul>
-                </div>
-    
-                <!-- Social Media and Images Section -->
-                <div class="col-md-4 text-center">
-                    <h5 class="fw-bold">Follow Us</h5>
-                    <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin"></i></a>
-                    <div class="d-flex justify-content-center mt-3">
-                        <img src="{% static 'media/crown.jpg' %}" class="img-fluid rounded me-2" alt="Group 1" style="width: 80px;">
-                        <img src="{% static 'media/fitness.jpg' %}" class="img-fluid rounded me-2" alt="Group 2" style="width: 80px;">
-                        <img src="{% static 'media/time.webp' %}" class="img-fluid rounded" alt="Group 3" style="width: 80px;">
-                    </div>
+ <!-- Footer Section -->
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <!-- Footer Content in One Row -->
+        <div class="row align-items-center justify-content-between">
+            <!-- Stay in Touch Section -->
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <h5 class="fw-bold text-black">Stay in Touch</h5>
+                <p class="small mb-1" style="color: #003366">Subscribe to our newsletter for updates and offers from Iron Queens.</p>
+                <form class="input-group justify-content-center">
+                    <input type="email" class="form-control w-auto" placeholder="Enter your email" required>
+                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <h5 class="fw-bold text-black">Quick Links</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#" class="text-navyblue text-decoration-none">Shop Queens' Picks</a></li>
+                    <li class="list-inline-item"><a href="{% url 'services' %}" class="text-navyblue text-decoration-none">Services</a></li>
+                    <li class="list-inline-item"><a href="{% url 'view_testimonials' %}" class="text-navyblue text-decoration-none">The Iron Tribe</a></li>
+                    <li class="list-inline-item"><a href="{% url 'contact' %}" class="text-navyblue text-decoration-none">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <h5 class="fw-bold text-black">Follow Us</h5>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank"  class="btn btn-outline-light btn-lg me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.meta.com" target="_blank" class="btn btn-outline-light btn-lg me-2"><i class="fa fa-x"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"class="btn btn-outline-light btn-lg me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline-light btn-lg"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-    
-            <!-- Bottom Section: Copyright -->
-            <div class="row mt-3">
-                <div class="col text-center">
-                    <p class="small mb-0">&copy; 2024 Iron Queens. All rights reserved.</p>
+
+            <!-- Iron Tribe Images -->
+            <div class="col-md-3 text-center">
+                <h5 class="fw-bold text-black">The Iron Tribe</h5>
+                <div class="d-flex justify-content-center">
+                    <img src="{% static 'media/crown.jpg' %}" class="img-fluid rounded-circle me-2" alt="Group 1" style="width: 60px;">
+                    <img src="{% static 'media/fitness.jpg' %}" class="img-fluid rounded-circle me-2" alt="Group 2" style="width: 60px;">
+                    <img src="{% static 'media/time.webp' %}" class="img-fluid rounded-circle" alt="Group 3" style="width: 60px;">
                 </div>
             </div>
         </div>
-    </footer>
-    
+
+        <!-- Footer Bottom Section -->
+        <div class="text-center mt-3">
+            <p class="small mb-1" style="color: #003366">&copy; 2024 Layali. All rights reserved.</p>
+        </div>
+    </div>
+    <!-- Arrow Up Button -->
+<button id="arrowUp" class="btn btn-primary rounded-circle" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000;">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+</footer>
+
+
+
     {% endblock %}
-    {% block postloadjs %}
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var toastElements = [].slice.call(document.querySelectorAll('.toast'));
-        toastElements.forEach(function (toastElement) {
-            var toast = new bootstrap.Toast(toastElement);
-            toast.show();
-        });
-    });
-</script>
+{% block postloadjs %}
+<script src="{% static 'js/base.js' %}"></script>
     {% endblock %}
 
 </body>
