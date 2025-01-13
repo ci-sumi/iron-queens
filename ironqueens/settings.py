@@ -45,7 +45,7 @@ CLOUDINARY_STORAGE = {
     'API_KEY': os.environ.get('API_KEY'),
     'API_SECRET': os.environ.get('API_SECRET')
 }
-ALLOWED_HOSTS = ['iron-queens.herokuapp.com', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['iron-queens.herokuapp.com','iron-queens-9a116e72c4d2.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
 SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
