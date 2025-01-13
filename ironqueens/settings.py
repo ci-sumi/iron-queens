@@ -230,27 +230,3 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY','')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY','')
 STRIPE_WH_SECRET_KEY = os.getenv('STRIPE_WH_SECRET_KEY','')
-
-
-
-
-
-# Debugging prints to verify .env is loaded
-print("CLOUD_NAME:", os.getenv("CLOUD_NAME"))
-print("API_KEY:", os.getenv("API_KEY"))
-print("API_SECRET:", os.getenv("API_SECRET"))
-
-print("stripe_public_key:", STRIPE_PUBLIC_KEY)
-print("stripe_secret_key:", STRIPE_SECRET_KEY)
-print("stripe_wh_secret_key:", STRIPE_WH_SECRET_KEY)
-
-
-
-
-
-
-
-
-print(CLOUDINARY_STORAGE)
-print(CLOUDINARY_STORAGE['CLOUD_NAME'])
-print(DEBUG,'DEBUG')
