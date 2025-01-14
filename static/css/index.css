@@ -1,14 +1,14 @@
 /* Content Section */
 .container {
     background-color: #f9f9f9; /* Soft background color */
-    padding: 50px 20px;
+    /* padding: 50px 20px; */
     width: 100%;
     max-width: 100%; /* Override Bootstrap's default */
     background-color: #f9f9f9; /* Background color */
     margin: 0; /* Remove any auto margins */
 }
 .display-4{
-    margin-top: 100px;
+    margin-top: 120px;
 
 }
 
@@ -93,6 +93,6 @@ p {
         font-size: 1rem;
     }
     .container {
-        padding: 30px;
+        width:100%;
     }
 }
