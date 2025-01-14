@@ -4,35 +4,58 @@
 
 {% block extra_corecss %}
 <link href="{% static 'css/index.css' %}" rel="stylesheet">
-    
+<style>
+    /* General form styling */
+    form.mx-auto {
+        max-width: 500px;
+        background-color: #f8f9fa;
+        border: 1px solid orange;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Smaller screen adjustments */
+    @media (max-width: 576px) {
+        form.mx-auto {
+            max-width: 90%; /* Reduce form width */
+            padding: 8px;   /* Reduce padding */
+            font-size: 0.9rem; /* Adjust font size */
+        }
+
+        form.mx-auto button {
+            padding: 10px; /* Adjust button padding */
+            font-size: 1rem; /* Adjust button font size */
+        }
+    }
+</style>
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
-    <div class="text-center" style="margin-top: 10rem; margin-bottom: 3rem;">
-        <!-- Contact Header -->
-        <h1 class="display-4" style="color: #333; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">
-            Contact Us
-        </h1>
-        <!-- Intro Text -->
-        <p style="color: #555; font-size: 1.1rem;">
-            We’d love to hear from you! Please fill out the form below and let us know how we can help.
-        </p>
-    
+<div class="text-center" style="margin-top: 10rem; margin-bottom: 3rem;">
+    <!-- Contact Header -->
+    <h1 class="display-4" style="color: #333; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">
+        Contact Us
+    </h1>
+    <!-- Intro Text -->
+    <p style="color: #555; font-size: 1.1rem;">
+        We’d love to hear from you! Please fill out the form below and let us know how we can help.
+    </p>
+
     <!-- Form -->
-    <form method="POST" class="mx-auto" style="max-width: 500px; background-color: #f8f9fa; border: 1px solid orange; padding: 10px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <form method="POST" class="mx-auto">
         {% csrf_token %}
-        
+
         <!-- Form Fields Styling -->
         {{ form.as_p }}
-        
+
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary btn-block mt-4" style="font-size: 1.1rem; padding: 12px 20px;">
             Send Message
         </button>
-    </form> 
-</div> 
+    </form>
 </div>
 {% endblock %}
