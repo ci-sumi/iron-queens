@@ -334,16 +334,16 @@ h1.logo-font {
 
   /* Custom dropdown menu styling */
   .dropdown-menu {
-    background-color: #007bff; /* Change to your preferred background color */
-    color: white; /* Change text color */
+    background-color: white;; /* Change to your preferred background color */
+    color: orange; /* Change text color */
     border-radius: 8px; /* Optional: Rounded corners for the dropdown */
     padding: 10px 0; /* Optional: Add some padding for better spacing */
 }
 
 /* Hover effect for items inside the dropdown */
 .dropdown-item:hover {
-    background-color: #0056b3; /* Darker shade for hover */
-    color: white; /* Keep text white when hovered */
+    background-color: orange; /* Darker shade for hover */
+    color: black; /* Keep text white when hovered */
 }
 
 /* Focus effect for items inside the dropdown */
