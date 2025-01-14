@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="text-center" style="margin-top: 14rem; margin-bottom: 3rem;">
+    <div class="text-center" style="margin-top: 10rem; margin-bottom: 3rem;">
         <!-- Contact Header -->
         <h1 class="display-4" style="color: #333; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">
             Contact Us
@@ -20,9 +20,9 @@
         <p style="color: #555; font-size: 1.1rem;">
             We’d love to hear from you! Please fill out the form below and let us know how we can help.
         </p>
-    </div>
+    
     <!-- Form -->
-    <form method="POST" class="mx-auto" style="max-width: 500px; background-color: #f8f9fa; border: 1px solid orange; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <form method="POST" class="mx-auto" style="max-width: 500px; background-color: #f8f9fa; border: 1px solid orange; padding: 10px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
         {% csrf_token %}
         
         <!-- Form Fields Styling -->
@@ -32,6 +32,7 @@
         <button type="submit" class="btn btn-primary btn-block mt-4" style="font-size: 1.1rem; padding: 12px 20px;">
             Send Message
         </button>
-    </form>  
+    </form> 
+</div> 
 </div>
 {% endblock %}
