@@ -8,19 +8,19 @@
 <div class="container mt-5 pt-5">
     <div class="row align-items-center">
         <!-- Left Column: Text Content -->
-        <div class="col-lg-6 text-center text-lg-start">
+        <div class="col-lg-6 col-md-12 text-center text-lg-start">
             <h1 class="display-4 fw-bold">Welcome to Iron Queens</h1>
             <p class="lead mt-3">
                 Discover the ultimate shopping experience! Explore our curated collection, enjoy premium services, and join our exclusive community.
             </p>
             <div class="mt-4">
-                <a href="{% url 'all_products' %}"  class="btn btn-primary btn-lg me-3">Shop Now</a>
-                <a href="{% url 'services' %}"class="btn btn-outline-secondary btn-lg">View Services</a>
+                <a href="{% url 'all_products' %}" class="btn btn-primary btn-lg me-3 mb-3 mb-lg-0">Shop Now</a>
+                <a href="{% url 'services' %}" class="btn btn-outline-secondary btn-lg">View Services</a>
             </div>
         </div>
 
         <!-- Right Column: Image -->
-        <div class="col-lg-6 text-center">
+        <div class="col-lg-6 col-md-12 text-center mt-4 mt-lg-0">
             <img src="{% static 'media/myhero.webp' %}" 
                  class="img-fluid rounded shadow-lg" 
                  alt="About Our Brand" 
@@ -30,16 +30,17 @@
                         object-fit: cover; 
                         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;">
         </div>
-        
-        </div>
     </div>
 </div>
+
+<!-- Empowering Women Section -->
 <div class="row mt-5">
     <div class="col-12">
         <h2 class="text-center fw-bold mb-4" style="font-family: 'Poppins', sans-serif; font-size: 2rem; color: #343a40;">
             Empowering Women Through Fitness
         </h2>
-        <p class="text-center" style="font-family: 'Roboto', sans-serif; font-size: 1.2rem; line-height: 1.8; color: #6c757d; max-width: 800px; margin: 0 auto;">
+        <p class="text-center px-3" 
+           style="font-family: 'Roboto', sans-serif; font-size: 1.2rem; line-height: 1.8; color: #6c757d; max-width: 800px; margin: 0 auto;">
             <span style="font-weight: 700; font-size: 1.5rem; color: #f8c032;">At Iron Queens,</span> 
             we are dedicated to empowering women through 
             <span style="font-weight: 600; font-size: 1.3rem;">high-quality gym equipment and fitness solutions</span> 
@@ -50,6 +51,4 @@
         </p>
     </div>
 </div>
-
-
 {% endblock %}
