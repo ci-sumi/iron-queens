@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api  
-import cloudinary_storage
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api  
+# import cloudinary_storage
 from dotenv import load_dotenv
 from urllib.parse import urlparse
 
@@ -40,17 +40,17 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 
 # Configure Cloudinary credentials
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
-    'API_KEY': os.environ.get('API_KEY'),
-    'API_SECRET': os.environ.get('API_SECRET')
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+#     'API_KEY': os.environ.get('API_KEY'),
+#     'API_SECRET': os.environ.get('API_SECRET')
+# }
 ALLOWED_HOSTS = ['iron-queens.herokuapp.com','iron-queens-9a116e72c4d2.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
 SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-print(CLOUDINARY_STORAGE)
+# print(CLOUDINARY_STORAGE)
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
@@ -67,8 +67,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary',
-    'cloudinary_storage',
+    # 'cloudinary',
+    # 'cloudinary_storage',
     
     # Thrird-party apps
     'allauth',
@@ -213,15 +213,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Static files settings
 
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-# Set Cloudinary as the default file storage
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+# # Set Cloudinary as the default file storage
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR,"static"),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # AWS S3 settings
 if 'USE_AWS' in os.environ:
