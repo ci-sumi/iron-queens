@@ -2,99 +2,97 @@
 {% load static %}
 {% block extra_corecss %}
     <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'services/css/service.css' %}">
     <style>
-        /* Push content down below the header */
-        {% comment %} .container {
-            margin-top: 12rem; /* Adjust based on header height */
-        } {% endcomment %}
+                /* Title styling */
+h1 {
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
 
-        /* Title styling */
-        h1 {
-            color: #333;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
+/* Add Testimonial Button styling */
+.btn-add-testimonial {
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 
-        /* Add Testimonial Button styling */
-        .btn-add-testimonial {
-            font-size: 1.1rem;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
+.btn-add-testimonial:hover {
+    background-color: #ff9f00;
+    color: white;
+}
 
-        .btn-add-testimonial:hover {
-            background-color: #ff9f00;
-            color: white;
-        }
+/* Testimonial Cards Styling */
+.testimonial {
+    background-color: #f9f9f9;
+    border: 1px solid orange; /* Ensured border color here */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        /* Testimonial Cards Styling */
-        .testimonial {
-            background-color: #f9f9f9;
-            border: 1px solid orange; /* Ensured border color here */
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.testimonial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
 
-        .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
+/* Service Name */
+.testimonial-service {
+    font-size: 1.1rem;
+    color: #007bff;
+    font-weight: 500;
+}
 
-        /* Service Name */
-        .testimonial-service {
-            font-size: 1.1rem;
-            color: #007bff;
-            font-weight: 500;
-        }
+/* Testimonial Content */
+.testimonial-content {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+    margin: 15px 0;
+}
 
-        /* Testimonial Content */
-        .testimonial-content {
-            font-size: 1.1rem;
-            color: #555;
-            font-style: italic;
-            margin: 15px 0;
-        }
+/* Testimonial Author */
+.testimonial-author {
+    font-size: 1rem;
+    color: #666;
+    font-weight: bold;
+}
 
-        /* Testimonial Author */
-        .testimonial-author {
-            font-size: 1rem;
-            color: #666;
-            font-weight: bold;
-        }
+/* Testimonial actions (edit, delete) */
+.testimonial-actions a {
+    margin-right: 10px;
+}
 
-        /* Testimonial actions (edit, delete) */
-        .testimonial-actions a {
-            margin-right: 10px;
-        }
+/* Empty state text */
+.text-muted {
+    font-size: 1.1rem;
+}
 
-        /* Empty state text */
-        .text-muted {
-            font-size: 1.1rem;
-        }
-
-        /* Responsive design for smaller screens */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .testimonial {
-                margin-bottom: 20px;
-            }
-            .btn-add-testimonial {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
-        }
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .testimonial {
+        margin-bottom: 20px;
+    }
+    .btn-add-testimonial {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
 
     </style>
+
+    
 {% endblock %}
 
 {% block content %}

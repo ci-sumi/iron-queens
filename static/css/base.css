@@ -7,7 +7,8 @@ html, body {
 
 body {
     display: flex;
-    flex-direction: column; /* Ensures content flows vertically */
+    flex-direction: column;
+    min-height: 100vh; /* Ensures content flows vertically */
 }
 
 main {
@@ -16,6 +17,7 @@ main {
 
 footer {
     flex-shrink: 0; /* Prevents footer from shrinking */
+    position: relative;
 }
 
 * {
@@ -93,12 +95,13 @@ form i {
 footer {
     background-color: #343a40;
     color: #ffffff;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     width: 100%; /* Adjust width as needed */
     margin: 0 auto;    /* Center the footer */
     border-radius: 0px;
     border-color: orange; /* Optional: Add rounded corners */
+    margin-top: 50px;
 }
 .btn-outline-light {
     color:#003366!important;
@@ -184,7 +187,7 @@ footer .row p {
     }
 
     footer .input-group {
-        width: 90%;
+        width: 100%;
     }
 
     footer .social-media {
@@ -329,6 +332,9 @@ h1.logo-font {
 @media (min-width: 768px) {
     .d-flex.align-items-center {
         justify-content: flex-end;
+    }
+    footer {
+        padding: 35px;
     }
 }
 
