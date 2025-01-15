@@ -1,4 +1,8 @@
 /* Content Section */
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 .container {
     background-color: #f9f9f9; /* Soft background color */
     /* padding: 50px 20px; */
@@ -93,6 +97,6 @@ p {
         font-size: 1rem;
     }
     .container {
-        width:100%;
+        width:150%;
     }
 }
