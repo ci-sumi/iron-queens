@@ -2,36 +2,72 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container" style="padding-top: 150px;">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container" style="padding-top: 150px;">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <hr>
-                <h2 class="logo-font mb-4">Product Management</h2>
-                <h5 class="text-muted">Edit a Product</h5>
-                <hr>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'all_products' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Update Product</button>
-                    </div>
-                </form>
-            </div>            
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <hr>
+            <h2 class="logo-font mb-4">Product Management</h2>
+            <h5 class="text-muted">Edit a Product</h5>
+            <hr>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <!-- Display non-field errors -->
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                
+                <!-- Render each field -->
+                {% for field in form %}
+                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                        <!-- Skip the label for the image field -->
+                        {% if field.name != 'image' %}
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {% endif %}
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="text-danger">
+                                {% for error in field.errors %}
+                                    <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                
+                <div class="text-right">
+                    <a class="btn btn-outline-black rounded-0" href="{% url 'all_products' %}">Cancel</a>
+                    <button class="btn btn-black rounded-0" type="submit">Update Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+{% endblock %}
 {% endblock %}
