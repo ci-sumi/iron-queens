@@ -7,17 +7,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="container py-5" style="margin-top: 12rem;">
+<div class="container py-5" style="margin-top: 8rem;">
     <!-- Dynamic Header -->
-    <h1 class="text-center mb-5" style="font-size: 2.5rem; font-weight: bold;">
+    <h1 class="text-center mb-4" style="font-size: 2rem; font-weight: bold;margin-top: 8rem;">
         {% if selected_category %}
             {{ selected_category|title }}
         {% else %}
             All IronQueen Products
         {% endif %}
     </h1>
-    <div style="margin-top: 100px;">
-        
+    <div class="mb-4">
         <!-- Sorting Dropdown -->
         <form method="get" class="d-inline">
             {% if selected_category %}
@@ -33,47 +32,52 @@
             </select>
         </form>
     </div>
-</div>
-<!-- Display Total Products Count -->
-<p>Total Products: {{ products.count }}</p>
-<div class="row">
-    {% for product in products %}
-    <div class="col-md-3 mb-4">
-        <a href="{% url 'product_detail' product.id %}" class="card-link">
-            <div class="card shadow-sm h-100" style="border: 2px solid orange;">
-                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">
-                        <strong>€{{ product.price }}</strong><br>
-                    <p class="product-rating">
-                        {% for i in range_of_stars %}
-                        {% if i <= product.rating %} <i class="fas fa-star"></i> <!-- Full star -->
-                            {% else %}
-                            <i class="far fa-star"></i> <!-- Empty star -->
-                            {% endif %}
-                            {% endfor %}
-                    </p>
-                    <p>
-                        {% if product.rating %}
-                        <small>Rating: {{ product.rating }}</small>
-                        {% else %}
-                        <small>Not rated yet</small>
-                        {% endif %}
-                    </p>
-                    </p>
 
+    <!-- Display Total Products Count -->
+    <p class="mb-4">Total Products: {{ products.count }}</p>
+
+    <!-- Product Cards -->
+    <div class="row g-3">
+        {% for product in products %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <a href="{% url 'product_detail' product.id %}" class="card-link">
+                <div class="card shadow-sm h-100" style="border: 2px solid orange;">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 1rem; font-weight: bold;">{{ product.name }}</h5>
+                        <p class="card-text" style="font-size: 0.9rem;">
+                            <strong>€{{ product.price }}</strong>
+                        </p>
+                        <div class="product-rating" style="font-size: 0.8rem;">
+                            {% for i in range_of_stars %}
+                                {% if i <= product.rating %}
+                                    <i class="fas fa-star"></i> <!-- Full star -->
+                                {% else %}
+                                    <i class="far fa-star"></i> <!-- Empty star -->
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <p style="font-size: 0.8rem;">
+                            {% if product.rating %}
+                                <small>Rating: {{ product.rating }}</small>
+                            {% else %}
+                                <small>Not rated yet</small>
+                            {% endif %}
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
 </div>
 {% endblock %}
 
+<!-- Flash Messages -->
 {% if messages %}
-{% for message in messages %}
-<p class="alert alert-warning">{{ message }}</p>
-{% endfor %}
+<div class="container mt-3">
+    {% for message in messages %}
+    <p class="alert alert-warning">{{ message }}</p>
+    {% endfor %}
+</div>
 {% endif %}
