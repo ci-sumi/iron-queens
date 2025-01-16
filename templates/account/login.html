@@ -7,7 +7,7 @@
 
 {% block inner_content %}
 <!-- Sign In Section -->
-<section class="auth-container d-flex align-items-center justify-content-center min-vh-100 bg-white">
+<section class="auth-container d-flex align-items-center justify-content-center min-vh-100 bg-white" style="margin-top: 5rem;">
     <div class="auth-box bg-white shadow-lg p-4 rounded" style="max-width: 400px; width: 100%;">
         <!-- Title -->
         <h2 class="logo-font mb-4 text-center text-uppercase text-primary">{% trans "Sign In" %}</h2>
@@ -74,6 +74,22 @@
                         {% endfor %}
                     </div>
                     {% endif %}
+                </div>
+
+                <!-- Remember Me -->
+                <div class="form-group mb-3">
+                    <div class="form-check d-flex align-items-center">
+                        <input 
+                            class="form-check-input me-2" 
+                            type="checkbox" 
+                            name="remember" 
+                            id="remember_me" 
+                            {% if form.remember.value %}checked{% endif %}
+                        >
+                        <label class="form-check-label" for="remember_me" style="font-size: 1rem; color: black;">
+                            {% trans "Remember Me" %}
+                        </label>
+                    </div>
                 </div>
 
                 <!-- Redirect Field -->

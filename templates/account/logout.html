@@ -7,13 +7,13 @@
 {% block inner_content %}
 <!-- Sign Out Confirmation Section -->
 <section class="auth-container d-flex align-items-center justify-content-center min-vh-100 bg-white">
-    <div class="auth-box bg-white shadow-lg p-4 rounded" style="margin-top:5rem ;">
+    <div class="auth-box bg-white shadow-lg p-4 rounded" style="margin-top:5rem;">
         <h2 class="logo-font mb-4 text-center">{% trans "Sign Out" %}</h2>
         <hr class="divider">
 
         <!-- Confirmation Message -->
         <div class="text-center">
-            <p class="mb-4">
+            <p class="mb-4" style="font-size: 1.25rem; font-weight: bold; color: #333;">
                 {% trans "Are you sure you want to sign out?" %}
             </p>
 
@@ -22,10 +22,16 @@
             <form method="post" action="{{ action_url }}" class="signout-form">
                 {% csrf_token %}
                 {{ redirect_field }}
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary action-btn">
-                        {% trans "Sign Out" %}
+                <div class="form-actions text-center">
+                    <!-- Sign out button -->
+                    <button type="submit" class="btn btn-danger action-btn mb-2">
+                        {% trans "Yes, Sign Out" %}
                     </button>
+                    <br>
+                    <!-- Cancel button to go back to the previous page -->
+                    <a href="{% url 'my_view' %}" class="btn btn-secondary action-btn mb-2">
+                        {% trans "Cancel" %}
+                    </a>
                 </div>
             </form>
         </div>
