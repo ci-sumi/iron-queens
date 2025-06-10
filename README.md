@@ -59,3 +59,48 @@ Live Link: [Iron Queens](https://iron-queens-9a116e72c4d2.herokuapp.com/)
 - [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 - [Credits](#credits)
 - [Acknowledgments](#acknowledgments)
+
+## User Experience (UX)
+
+Iron Queens Gym caters to fitness-focused women seeking high-quality workout apparel, gym equipment, and personalized training solutions designed specifically for women's needs.
+
+### User Stories
+
+#### EPIC | Product Browsing
+- As a shopper, I can view all products at once so I can get an overview of what's available
+- As a shopper, I can view individual product details (description, price, sizes) so I can make informed decisions
+- As a shopper, I can filter products by category (apparel/equipment/accessories) so I can narrow my search
+- As a shopper, I can sort products by price, rating, or newness so I can find what suits me best
+- As a shopper, I can search for specific items so I can find products quickly
+
+#### EPIC | User Account
+- As a user, I can register for an account so I can track my orders
+- As a user, I can log in/out of my account so I can access my personal details
+- As a user, I can recover my password so I can regain access if I forget it
+- As a user, I can view my order history so I can track past purchases
+- As a user, I can save my shipping details so I don't need to re-enter them
+
+#### EPIC | Shopping & Checkout
+- As a shopper, I can add items to my bag so I can purchase them later
+- As a shopper, I can view my bag contents so I can review before purchasing
+- As a shopper, I can adjust item quantities in my bag so I can modify my order
+- As a shopper, I can enter payment details securely so I can complete my purchase
+- As a shopper, I can receive order confirmation so I know my purchase was successful
+
+#### EPIC | Admin & Management
+- As an admin, I can add/edit/delete products so I can manage inventory
+- As an admin, I can view customer orders so I can fulfill them
+- As an admin, I can add/edit training programs so I can update offerings
+- As an admin, I can manage customer inquiries so I can provide support
+
+#### EPIC | Community Features
+- As a user, I can read product reviews so I can make better choices
+- As a user, I can contact support so I can get help when needed
+- As a user, I can subscribe to newsletters so I can receive updates
+
+### Future Features
+The following features are planned for future implementation:
+- Size recommendation tool based on body measurements
+- Virtual try-on for apparel
+- Integration with fitness tracking apps
+- Loyalty rewards program
