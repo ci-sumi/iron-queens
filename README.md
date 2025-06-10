@@ -149,7 +149,7 @@ The palette maintains WCAG AA+ contrast standards while supporting the brand's l
 - Custom form styling with gold validation states
 - Consistent card shadows for depth
 
-```css
+
 /* Example gold accent styling */
 .cta-button {
   background: transparent;
@@ -161,3 +161,137 @@ The palette maintains WCAG AA+ contrast standards while supporting the brand's l
 .cta-button:hover {
   background: rgba(212, 175, 55, 0.1);
 }
+
+
+### Wireframes
+
+All wireframes were designed with mobile-first approach, focusing on the premium fitness experience for women.
+
+### Key Pages
+
+<details>
+<summary>🏠 Home Page</summary>
+  
+![Home Page](docs/wireframes/home.png)  
+*Featured sections: New arrivals, hero workout image, membership CTA*
+</details>
+
+<details>
+<summary>👚 Workout Apparel Collection</summary>
+  
+![Workout Apparel](docs/wireframes/apparel.png)  
+*Filterable grid of leggings, sports bras, and accessories with size guides*
+</details>
+
+<details>
+<summary>💪 Training Programs</summary>
+  
+![Training Programs](docs/wireframes/training_programs.png)  
+*Bookable sessions with coach bios and schedule*
+</details>
+
+### User Flow
+
+<details>
+<summary>🛍️ Gym Bag & Checkout</summary>
+  
+![Gym Bag](docs/wireframes/gym_bag.png)  
+![Checkout](docs/wireframes/checkout.png)  
+*Seamless flow with size validation and secure payment*
+</details>
+
+<details>
+<summary>✅ Order Confirmation</summary>
+  
+![Order Confirmation](docs/wireframes/order_confirmation.png)  
+*Includes delivery ETA and recommended matching items*
+</details>
+
+### Member Features
+
+<details>
+<summary>📊 Progress Dashboard</summary>
+  
+![User Profile](docs/wireframes/user_profile.png)  
+*Tracks workout milestones with rewards system*
+</details>
+
+<details>
+<summary>🏆 Success Stories</summary>
+  
+![Success Stories](docs/wireframes/success_stories.png)  
+*Member transformations with product testimonials*
+</details>
+
+### Admin Portal
+
+<details>
+<summary>🛒 Product Management</summary>
+  
+![Product Management](docs/wireframes/product_management.png)  
+*CRUD interface for inventory with size/color variants*
+</details>
+
+<details>
+<summary>📅 Program Management</summary>
+  
+![Program Management](docs/wireframes/program_management.png)  
+*Schedule builder for classes and personal training*
+</details>
+
+
+## Agile Methodology
+Github projects was used to manage the development process using an agile approach. Please see link to project board [here](https://github.com)
+
+
+The 5 Epics listed above were documented within the Github project as Milestones. A Github Issue was created for each User Story which was then allocated to a milestone(Epic). Each User Story has defined acceptance criteria to make it clear when the User Story has been completed. The acceptance criteria are further broken down into tasks to facilitate the User Story's execution.
+
+## Database Schema 
+
+Two relational databases were used to create this site - during production SQLite was used and then Postgres was used for the deployed Heroku version. Below is an image of how the database models relate to each other:
+
+![Database Schema](docs/readme_images/)
+
+🔐 Security Features and Defensive Design
+
+At IronQueens, the security of our users and the integrity of the platform are top priorities. Below are the core security measures and defensive design strategies integrated into the project:
+🧍‍♀️ User Authentication and Authorization
+
+Class-Based Views (CBVs):
+    Utilized LoginRequiredMixin to restrict access to authenticated users only.
+    Implemented UserPassesTestMixin to enforce object-level permissions, allowing users to edit or delete only their own content unless they are superusers.
+
+Function-Based Views (FBVs):
+Applied @login_required and @user_passes_test decorators to protect sensitive views and enforce role-based access.
+
+📝 Form Validation
+
+  All forms have server-side validation to prevent invalid or malicious data submission.
+
+  Clear error messages inform users of the exact field that caused validation to fail.
+
+  Input fields are sanitized and validated to defend against injection and formatting errors.
+
+🗄️ Database Security
+
+  Sensitive configuration variables like the database URL, Django secret key, and third-party API credentials (e.g., Stripe) are securely stored in env.py, keeping them out of source control.
+
+  Parameterized queries and ORM-based database interaction prevent SQL injection vulnerabilities.
+
+🛡️ CSRF Protection and Session Management
+
+  All forms across the platform include Cross-Site Request Forgery (CSRF) tokens provided by Django.
+
+  Secure session management practices are used, including secure cookie flags and session expiry settings to minimize session hijacking risk.
+
+❌ Custom Error Pages
+
+To improve user experience and clarity during error states, custom error pages were implemented:
+
+400 – Bad Request: IronQueens couldn’t process your request. Please try again.
+
+403 – Forbidden: You don’t have permission to view this page. Try logging into the correct account.
+
+404 – Page Not Found: The page you’re looking for may have moved or no longer exists.
+
+500 – Server Error: A problem occurred on our end. We’re working to fix it promptly.
