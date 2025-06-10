@@ -104,3 +104,60 @@ The following features are planned for future implementation:
 - Virtual try-on for apparel
 - Integration with fitness tracking apps
 - Loyalty rewards program
+
+## Design
+
+Iron Queens Gym combines athletic energy with luxurious sophistication through a refined design featuring gold accents and clean lines. The aesthetic celebrates women's strength while maintaining premium appeal.
+
+### Colour Scheme
+![Colour Palette](docs/readme_images/colour_scheme.png)
+- **Primary Colours**:
+  - `#D4AF37` (Gold) - Represents premium quality and achievement
+  - `#2B2B2B` (Anthracite) - Creates strong contrast and modern elegance
+- **Background Colours**:
+  - `#F8F8F8` (Light Grey) - Provides clean product presentation
+  - `#FFFFFF` (White) - Ensures maximum readability
+
+The palette maintains WCAG AA+ contrast standards while supporting the brand's luxurious identity.
+
+### Imagery
+**Hero Visual**:
+- Features a powerful female athlete in mid-workout
+- Gold lighting accents complement the colour scheme
+- Captures movement and premium fabric details
+
+**Product Imagery**:
+- Studio-quality shots on neutral backgrounds
+- Multiple angles showing technical features
+- Detail close-ups of fabrics and stitching
+
+**Supporting Visuals**:
+- Before/after transformation shots
+- Gym lifestyle images with gold accent elements
+
+### Typography
+**Primary Font**: 
+- Raleway (600 SemiBold for headings, 400 Regular for body)
+- Chosen for its geometric elegance and excellent legibility
+
+**Fallback Stack**:
+- Sans-serif system fonts (Arial, Helvetica, etc.)
+
+### UI Elements
+- Gold border accents on interactive elements
+- Subtle shimmer effects on buttons
+- Custom form styling with gold validation states
+- Consistent card shadows for depth
+
+```css
+/* Example gold accent styling */
+.cta-button {
+  background: transparent;
+  border: 2px solid #D4AF37;
+  color: #2B2B2B;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
