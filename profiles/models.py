@@ -3,17 +3,34 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_countries.fields import CountryField
+from django.core.validators import RegexValidator
 # Create your models here.  
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+
+    phone_validator = RegexValidator(
+        regex=r'^\+?[\d\s\-]{7,15}$',
+        message="Enter a valid phone number (e.g. +123456789 or 012-3456789)."
+    )
+    postcode_validator = RegexValidator(
+        regex=r'^[A-Za-z0-9\s\-]{3,10}$',
+        message="Enter a valid postal code (e.g. SW1A 1AA or 12345)."
+    )
+
+    default_phone_number = models.CharField(
+        max_length=20, null=True, blank=True,
+        validators=[phone_validator]
+    )
     default_county = models.CharField(max_length=40, null=True, blank=True)
-    default_postcode = models.CharField(max_length=20, null=True, blank=True)
+    default_postcode = models.CharField(
+        max_length=20, null=True, blank=True,
+        validators=[postcode_validator]
+    )
     default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
     default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
     default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    default_country = CountryField(blank_label='Country',max_length=40,null=True, blank=True)
-    
+    default_country = CountryField(blank_label='Country', max_length=40, null=True, blank=True)
+
     def __str__(self):
         return self.user.username
     
