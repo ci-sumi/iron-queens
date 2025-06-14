@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/accounts/login/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/bag/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/?category=Gym%20Tank%20Tops%20and%20T-Shirts</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/?category=Gym%20Bottle</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/?category=Gym%20Bags</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/?category=Gym%20Equipment</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/?category=Protein%20Bars</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/services/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/services/testimonials/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/profile/contact/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/7/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/2/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/4/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/1/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/3/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/11/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/8/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/9/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/10/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/12/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/17/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/20/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/19/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/18/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/13/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/16/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/15/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/6/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/43/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/products/44/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/accounts/login/?next=/services/testimonials/add/</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/accounts/signup/?next=%2Fservices%2Ftestimonials%2Fadd%2F</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://iron-queens-9a116e72c4d2.herokuapp.com/accounts/login/?next=%2Fservices%2Ftestimonials%2Fadd%2F</loc>
+  <lastmod>2025-06-14T10:33:20+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>
