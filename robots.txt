@@ -1,0 +1,5 @@
+User-agent:*
+Disallow:/bag/
+Disallow:/profiles/
+Disallow:/checkout/
+Disallow:https://iron-queens-9a116e72c4d2.herokuapp.com/sitemap.xml
