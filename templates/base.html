@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Our Story – Iron Queens empowers women through fitness. Founded by female athletes, we create gym equipment that fits your strength journey. Meet the team!">
     <meta name="keywords" content="gym equipment,fitness solutions, strong, capable,confident.">
+    
 
     {% endblock %}
     <title>Iron Queens{% block extra_title %}{% endblock %}</title>
@@ -21,6 +22,11 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/custom_signin.css' %}">
+         <style>
+        #mc_embed_signup{background:#fff;clear:left; font:14px Helvetica,Arial,sans-serif; width: 600px;}
+        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+        </style>
     {% endblock %}
     {% block extra_corecss %}
     
@@ -80,11 +86,7 @@
             <!-- Mail Chip -->
              <div id="mc_embed_shell">
       <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
-  <style>
-        #mc_embed_signup{background:#fff;clear:left; font:14px Helvetica,Arial,sans-serif; width: 600px;}
-        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
+ 
 <div id="mc_embed_signup">
     <form action="https://herokuapp.us13.list-manage.com/subscribe/post?u=94918ca40cfb9c7e64fe731a6&amp;id=1ec3afd1b3&amp;f_id=00b9f4e5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
         <div id="mc_embed_signup_scroll"><h2>Subscribe</h2>
