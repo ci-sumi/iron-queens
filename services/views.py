@@ -1,17 +1,20 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import Service,Testimonial
-from .forms import ServiceForm,TestimonialForm
+from .models import Service, Testimonial
+from .forms import ServiceForm, TestimonialForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
+
 
 # Create your views here.
 def superuser_check(user):
     return user.is_superuser
 
+
 def services(request):
     services = Service.objects.all()
     return render(request, 'services/services.html', {'services': services})
+
 
 @user_passes_test(superuser_check)
 def add_service(request):
@@ -28,8 +31,9 @@ def add_service(request):
 
     return render(request, 'services/add_service.html', {'form': form})
 
+
 @user_passes_test(superuser_check)
-def edit_service(request,id):
+def edit_service(request, id):
     service = get_object_or_404(Service, pk=id)
 
     if request.method == 'POST':
@@ -43,7 +47,10 @@ def edit_service(request,id):
     else:
         form = ServiceForm(instance=service)
 
-    return render(request, 'services/edit_service.html', {'form': form,'service': service})
+    return render(request, 'services/edit_service.html', {
+            'form': form,
+            'service': service
+            })
 
 
 @user_passes_test(superuser_check)
@@ -55,13 +62,17 @@ def delete_service(request, id):
         return redirect('services')
     else:
         messages.error(request, 'Failed to delete service')
-        
-    return render(request, 'services/delete_service.html', {'service': service})
+    return render(request, 'services/delete_service.html', {
+           'service': service
+           })
 
 
 def view_testimonials(request):
-    testimonials = Testimonial.objects.select_related('service','user').all()
-    return render(request, 'services/testimonials.html', {'testimonials': testimonials})
+    testimonials = Testimonial.objects.select_related('service', 'user').all()
+    return render(request, 'services/testimonials.html', {
+        'testimonials': testimonials
+        })
+
 
 @login_required
 def add_testimonial(request):
@@ -80,12 +91,13 @@ def add_testimonial(request):
 
     return render(request, 'services/add_testimonial.html', {'form': form})
 
+
 @login_required
-def edit_testimonial(request,id):
+def edit_testimonial(request, id):
     testimonial = get_object_or_404(Testimonial, pk=id)
-    
     if testimonial.user != request.user:
-        messages.error(request, 'You do not have permission to edit this testimonial')
+        messages.error(
+            request, 'You do have permission to edit this testimonial')
         return redirect('view_testimonials')
 
     if request.method == 'POST':
@@ -99,7 +111,10 @@ def edit_testimonial(request,id):
     else:
         form = TestimonialForm(instance=testimonial)
 
-    return render(request, 'services/edit_testimonial.html', {'form': form,'testimonial': testimonial})
+    return render(request, 'services/edit_testimonial.html', {
+            'form': form, 'testimonial': testimonial
+            })
+
 
 @login_required
 def delete_testimonial(request, id):
@@ -109,7 +124,8 @@ def delete_testimonial(request, id):
             testimonial.delete()
             messages.success(request, 'Testimonial deleted successfully.')
         else:
-            messages.error(request, 'You do not have permission to delete this testimonial.')
+            messages.error(
+                request, 'You do not have permission to delete this')
         return redirect('view_testimonials')
     else:
         messages.error(request, 'Invalid request method.')
