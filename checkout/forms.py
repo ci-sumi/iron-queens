@@ -28,7 +28,8 @@ class OrderForm(forms.ModelForm):
              'placeholder': 'Postcode '}),
             'county': forms.TextInput(attrs={'class': 'form-control',
              'placeholder': 'County, State or Province *'}),
-            'country': CountrySelectWidget(attrs={'class': 'form-control', 'placeholder': 'Select Country'}),
+            'country': CountrySelectWidget(attrs={'class': 'form-control',
+             'placeholder': 'Select Country'}),
         }
 
     def __init__(self, *args, **kwargs):
