@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+/* global bootstrap */
 document.addEventListener('DOMContentLoaded', function () {
     var toastElements = [].slice.call(document.querySelectorAll('.toast'));
     toastElements.forEach(function (toastElement) {
