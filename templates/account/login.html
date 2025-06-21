@@ -94,9 +94,8 @@
 
                 <!-- Redirect Field -->
                 {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
                 {% endif %}
-
                 <!-- Action Buttons -->
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <a class="btn btn-outline-secondary rounded-0" href="{% url 'my_view' %}">Home</a>
