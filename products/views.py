@@ -38,9 +38,9 @@ def all_products(request):
     # Apply sorting if provided
     if sort:
         if sort == 'low_to_high':
-            products = products.order_by('price')  # Sort by price (low to high)
+            products = products.order_by('price') # Sort by price (low to high)
         elif sort == 'high_to_low':
-            products = products.order_by('-price')  # Sort by price (high to low)
+            products = products.order_by('-price') #Sort by price (high to low)
             print(products.query)  # Debug: Print the SQL query
         elif sort == 'name_a_z':
             products = products.order_by('name')  # Sort by name (A to Z)
@@ -103,7 +103,8 @@ def edit_product(request, product_id):
             messages.error(request, 'Failed to update product')
     else:
         form = ProductForm(instance=product)
-    return render(request, 'products/edit_product.html', {'form': form, 'product': product})
+    return render(request, 'products/edit_product.html',
+            {'form': form, 'product': product})
 
 @user_passes_test(superuser_check)
 def delete_product(request, product_id):
@@ -112,7 +113,8 @@ def delete_product(request, product_id):
         product.delete()
         messages.success(request, 'Product deleted successfully')
         return redirect('all_products')
-    return render(request, 'products/delete_product.html', {'product': product})
+    return render(request, 'products/delete_product.html',
+            {'product': product})
     
     
    

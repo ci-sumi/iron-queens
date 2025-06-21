@@ -15,7 +15,8 @@ class Category(models.Model):
     
 
 class Product(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey('Category', null=True, blank=True,
+    on_delete=models.SET_NULL)
     sku = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -23,7 +24,8 @@ class Product(models.Model):
     # image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(upload_to='products/', null=True, blank=True)
     # image = CloudinaryField('image', null=True, blank=True) 
-    rating = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
+    rating = models.DecimalField(max_digits=3, decimal_places=1, null=True,
+    blank=True)
     
     
     def __str__(self):
