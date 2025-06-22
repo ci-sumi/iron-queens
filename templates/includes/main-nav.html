@@ -39,6 +39,10 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                 {% if request.user.is_authenticated %}
+                <li class="dropdown-header">
+                <strong>{{ request.user.username }}</strong>
+                </li>
+                 <li><hr class="dropdown-divider"></li>
                     {% if request.user.is_superuser %}
                        <li><a href="{% url 'add_product'%}" class="dropdown-item">Product Management</a></li>
                     {% endif %}
