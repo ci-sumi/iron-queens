@@ -62,16 +62,21 @@
             <div class="col-md-3 mb-3">
                 <h5 class="text-black fw-bold">Subscribe</h5>
                 <div id="mc_embed_signup">
-                    <form action="https://herokuapp.us13.list-manage.com/subscribe/post?u=94918ca40cfb9c7e64fe731a6&amp;id=1ec3afd1b3&amp;f_id=00b9f4e5f0"
-                          method="post" target="_blank" class="validate">
+                    <form id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
                         <div class="mc-field-group">
                             <label for="mce-EMAIL" class="form-label text-dark">Email Address</label>
                             <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" required>
                         </div>
                         <div style="position:absolute; left:-5000px;" aria-hidden="true">
-                            <input type="text" name="b_94918ca40cfb9c7e64fe731a6_1ec3afd1b3" tabindex="-1">
+                            <input type="text" name="b_94918ca40cfb9c7e64fe731a6_1ec3afd1b3" tabindex="-1" value="">
                         </div>
                         <button type="submit" class="btn btn-warning mt-2">Subscribe</button>
+
+                        <!-- Inline messages -->
+                        <div id="mce-responses" class="clear foot mt-2">
+                            <div id="mce-error-response" style="display:none; color: #dc3545;"></div>
+                            <div id="mce-success-response" style="display:none; color: #28a745;"></div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -135,9 +140,54 @@
     (function($) {
         window.fnames = new Array(); 
         window.ftypes = new Array();
-        fnames[0]='EMAIL';ftypes[0]='email';
+        fnames[0] = 'EMAIL'; ftypes[0] = 'email';
     })(jQuery);
     var $mcj = jQuery.noConflict(true);
+
+    // Mailchimp AJAX submission (JSONP)
+    $(document).ready(function() {
+        $('#mc-embedded-subscribe-form').submit(function(e) {
+            e.preventDefault();
+
+            var $form = $(this);
+            var email = $form.find('input[name="EMAIL"]').val();
+            var $error = $('#mce-error-response');
+            var $success = $('#mce-success-response');
+
+            // Simple email validation regex
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                $error.text('Please enter a valid email address.').show();
+                $success.hide();
+                return;
+            }
+
+            // Mailchimp endpoint for JSONP (replace u and id with your own)
+            var url = 'https://herokuapp.us13.list-manage.com/subscribe/post-json?u=94918ca40cfb9c7e64fe731a6&id=1ec3afd1b3&c=?';
+
+            $.ajax({
+                url: url,
+                data: $form.serialize(),
+                dataType: 'jsonp',
+                contentType: "application/json; charset=utf-8",
+                success: function(data) {
+                    if (data.result === 'success') {
+                        $success.text('Thank you for subscribing!').show();
+                        $error.hide();
+                        $form[0].reset();
+                    } else {
+                        var msg = data.msg || 'Sorry, there was an error. Please try again.';
+                        $error.text(msg).show();
+                        $success.hide();
+                    }
+                },
+                error: function() {
+                    $error.text('Could not connect to the subscription server. Please try again later.').show();
+                    $success.hide();
+                }
+            });
+        });
+    });
 </script>
 {% endblock %}
 </body>
