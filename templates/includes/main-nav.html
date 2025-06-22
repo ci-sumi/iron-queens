@@ -76,6 +76,21 @@
         <!-- Collapsible Menu -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'my_view' %}">Home</a>
+                </li>
+                
+
+                <!-- Additional Navigation Links -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'services' %}">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'view_testimonials' %}">The Iron Tribe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact the Queens</a>
+                </li>
                 <!-- Queens' Picks Dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="queensPicksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -90,20 +105,7 @@
                         <li><a class="dropdown-item" href="{% url 'all_products' %}?category=Protein%20Bars">Protein Bars</a></li>
                     </ul>
                 </li>
-
-                <!-- Additional Navigation Links -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'services' %}">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'view_testimonials' %}">The Iron Tribe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contact' %}">Contact the Queens</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'my_view' %}">Home</a>
-                </li>
+                
             </ul>
         </div>
     </div>
