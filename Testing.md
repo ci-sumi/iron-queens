@@ -50,7 +50,7 @@
 *As a shopper I can view a specific category of products so I can browse the type of products I'm looking for.*
 - When clicking the 'Home Decor' link in the navbar the dropdown menu will show all the different categories. Clicking any of these will take the user to the products page, showing only items from the category selected. The category selected will display as the page heading.
 
-![Categories](docs/readme_images/features/categories.png)
+![Categories](docs/readme_images/features/category.png)
 
 ![products](docs/readme_images/features/products.png)
  
@@ -62,37 +62,31 @@
 *As a shopper, I can sort all products so that I can view products based on price or title.*
 - A sort box is located on the products page where users can sort all products by price in ascending or descending order and by title (A-Z). 
 
-![sort](docs/readme_images/features/sort.png)
 
-*As a site user, I can view a list of Interior Design Services provided so I can understand what each service entails and make an enquiry if desired.*
-- When the user navigates to the Interior Design Services page they are presented with a list of all Interior Design Services from the database along with detailed descriptions. An "Enquire Now" button displays beside each service which will take the user to the Contact form when clicked.
+*As a site user, I can view  Services provided so I can understand what each service entails and make an enquiry if desired.*
+- When the user navigates to the Interior Design Services page they are presented with a list of all  Services from the database along with detailed descriptions. An "Enquire Now" button displays beside each service which will take the user to the Contact form when clicked.
 
-![Design Services](docs/readme_images/features/design_services.png)
+![Design Services](docs/readme_images/features/services.png)
 
-*As a site user, I can read testimonials left by other customers so I see what feedback they gave on the Interior Design Services they received.*
-- When the user navigates to the Testimonials page they can see testimonials left by previous clients. Each testimonial displays the Design Service they relate to, the date and the user's name.
+*As a site user, I can read testimonials left by other customers so I see what feedback they gave on the Services they received.*
+- When the user navigates to the Testimonials page they can see testimonials left by previous clients. 
 
 ![Testimonials](docs/readme_images/features/testimonials.png)
 
 *As a site user, I can view pictures of previous interior design projects so that I can see if I like the results and build trust in the service provider.*
-- When the user clicks on the Interior Design Projects tab in the nav bar they are taken to a page displaying pictures of previous projects completed by Fresh Nest.
-- When the user hovers over the image on Desktop view, the type of design service and location will appear in the centre of the image.
-- When the user views the page on mobile, the type of design service and location will display below the image.
-
-![Design Projects](docs/readme_images/features/design_projects.png)
 
 
 ### EPIC | User Account and Profile
 *As a site user I can register an account so that I can have a personal account.*
 - A sign up button is located in the user options drop down menu in the Navbar. When the user clicks the button they are taken to the sign up page.
 
-![Sign Up](docs/readme_images/features/sign_up.png)
+![Sign Up](docs/readme_images/features/signup.png)
 
 *As a site user I can log in or log out of my account so that I can keep my account secure.*
 - If the user has registered an account they can log in or log out by clicking the links in the user options drop down menu in the Navbar.
 
-![Sign In](docs/readme_images/features/sign_in.png)
-![Sign Out](docs/readme_images/features/sign_out.png)
+![Sign In](docs/readme_images/features/signin.png)
+![Sign Out](docs/readme_images/features/signout.png)
 
 *As a site user I can see my login status so that I know if I'm logged in or out.*
 
@@ -126,17 +120,17 @@
 
 ![Product Detail](docs/readme_images/features/product_detail.png)
 
-*As a shopper I can view a running total of my shopping bag as I am shopping so that I can see how much it costs in total.*
+*As a shopper I can view a running total of my shopping bag as I am shopping so that I can see how much it costs in total.
 
 - As the user adds products to their bag, a toast message appears in the top right-hand corner of the screen informing the user that the item has been added, giving them a snapshot of the bag contents and the total cost of the bag.
 
-![bag total](docs/readme_images/features/bag_total.png)
+![bag total](docs/readme_images/features/shopping_cart.png)
 
 *As a shopper I can view the contents of my shopping bag at any time so I can see what is included and the total cost.*
 - When the user clicks on the shopping bag icon in the nav bar they are taken to the shopping bag page which shows the products which the user has added to their cart, unit price, quantity and subtotal.
 - The bottom of the page shows the bag total, delivery costs and then the grand total.
 
-![shopping bag](docs/readme_images/features/shopping_bag.png)
+![shopping bag](docs/readme_images/features/shopping_total.png)
 
 *As a shopper I can adjust the quantity of individual products in my bag so that I can easily make changes before I purchase.*
 - When the user is viewing the shopping bag, they are able to adjust the quantity of each product line item and update the subtotal by clicking the update icon.
@@ -147,7 +141,7 @@
 *As a shopper, I can see a summary of my shopping cart when I checkout so that I know what products are included and the total cost before I commit to purchasing.*
 - On the Checkout page the user can see a summary of the line items within their order including a thumbnail image, the product name, the quantity, the unit cost and the overall total order cost on the right-hand side.
 
-![checkout](docs/readme_images/features/checkout.png)
+![checkout](docs/readme_images/features/check_out.png)
 
 *As a shopper, I can easily enter my payment information securely so that I can purchase my chosen products quickly with no issues.*
 - When the user navigates to the checkout page, they can see the Stripe Elements UI where they can enter their card details securely and pay for their order.
@@ -175,27 +169,23 @@
 - The edit form is pre-populated with the product information.
 
 ![edit product](docs/readme_images/features/edit_product.png)
-![delete product](docs/readme_images/features/delete_product.png)
+
 
 *As a site owner, I can add/edit/delete interior design services provided through an easy-to-use interface so that I can manage the site's contents.*
 - When the site owner is logged in, a Design Service Management option appears in the User drop-down menu.
 - When the site owner navigates to the Design Service Management page they can add a new design service to the site through a user-friendly form. 
 
-![Add Service](docs/readme_images/features/add_service.png)
+![Add Service](docs/readme_images/features/add_services.png)
 - The site owner is able to edit and delete services by clicking buttons on the Interior Design Services page.
 -  The edit forms fields are pre-populated with all service information. 
 
 ![edit Service](docs/readme_images/features/edit_service.png)
-![Delete Service](docs/readme_images/features/delete_service.png)
+
 
 *As a site owner, I can add/delete images and location of previous design projects so that I can manage the site's contents.*
 - When the site owner is logged in, a Previous Project Management option appears in the User drop-down menu.
 - When the site owner navigates to the Previous Project Management page they can add details of a previous project to the site. through a user-friendly form. 
 
-![Add Project](docs/readme_images/features/add_project.png)
-- The site owner is able to delete project images from the Previous Projects page by clicking the 'x' in the top right-hand corner of the picture.
-
-![Delete Project](docs/readme_images/features/delete_project.png)
 
 *As a site owner, I can view and delete customer enquiries on the front-end without having to access the admin panel.*
 - When the site owner is logged in, an Enquiries Management option appears in the User drop-down menu.
@@ -206,7 +196,7 @@
 - When the site owner clicks on an enquiry they are taken to the individual enquiry detail.
 - The site owner can choose to delete the enquiry or to go back to the list of enquiries.
 
-![Enquiry Detail](docs/readme_images/features/enquiry_detail.png)
+
 
 ### EPIC | User Interaction
 *As a site user, I can submit an enquiry form so that I can contact the site owner.*
@@ -226,7 +216,7 @@
 - The edit forms fields are pre-populated with testimonial information.
 
 ![Edit Testimonial](docs/readme_images/features/edit_testimonial.png)
-![Delete Testimonial](docs/readme_images/features/delete_testimonial.png)
+
 - The completed testimonial is automatically populated with the user's username and date underneath the body.
 
 ![Testimonials](docs/readme_images/features/testimonials.png)
@@ -242,12 +232,61 @@ HTML Validation
 [The W3C Markup Validator](https://validator.w3.org/) service was used to validate the HTML.
 
 These are the results of the validation:
+*Home*
+![Home](docs/readme_images/html_validation/home_html_validation.png)
+*Products*
+![Products](docs/readme_images/html_validation/products_html_validation.png)
+*Products_Add*
+![Products](docs/readme_images/html_validation/product_add__html_validation.png)
+*Profile*
+![Profile](docs/readme_images/html_validation/profile_html_validation.png)
+*Orderhistory*
+![Orderhistory](docs/readme_images/html_validation/order_history_html_validation.png)
+*Contact*
+![Contact](docs/readme_images/html_validation/contact_html_validation.png)
+*Bag*
+![Bag](docs/readme_images/html_validation/bag_html_validation.png)
+*Testimonial*
+![Testimonial](docs/readme_images/html_validation/testimonials_html_validation.png)
+*Testimonial_Add*
+![Testimonial_Add](docs/readme_images/html_validation/testimonials_add_html_validation.png)
+*Services*
+![Services](docs/readme_images/html_validation/services_html_validation.png)
+*Services_Add*
+![Services_Add](docs/readme_images/html_validation/services_add_html_validation.png)
+*Signin*
+![Signin](docs/readme_images/html_validation/signin_html_validation.png)
+
+*Signup*
+![Signup](docs/readme_images/html_validation/signup_html_validation.png)
+
 
 CSS Validation
 The [CSS Validation](https://jigsaw.w3.org/css-validator/) Service was used for CSS code.
 
 These are the results of the validation:
+*Home*
+![Home](docs/readme_images/css_validation/base_css_validation.png)
+*Index*
+![Index](docs/readme_images/css_validation/index_css_validation.png)
+*Checkout*
+![Checkout](docs/readme_images/css_validation/checkout_css_validation.png)
+*Product*
+![Product](docs/readme_images/css_validation/product_css_validation.png)
+
+![Services](docs/readme_images/css_validation/services_css_validation.png)
+![Profile](docs/readme_images/css_validation/profile_css_html.png)
 
 The [JSHint](https://jshint.com/) JavaScript Code Quality Tool was used to validate the sites JS code.
+![Base](docs/readme_images/js_validation/base_js_validation.png)
+
+![Country](docs/readme_images/js_validation/country_field_js_validation.png)
+
+![Stripe](docs/readme_images/js_validation/stripe_js_validation.png)
+
 Python Validation
 For Python code, the [CI PEP8](https://pep8ci.herokuapp.com/) online validator was used to validate the code.
+![Context](docs/readme_images/python/context.py.png)
+![Profile](docs/readme_images/python/profile_view.py.png)
+![Services](docs/readme_images/python/services.py.png)
+![Services](docs/readme_images/python/services.py.pg)
