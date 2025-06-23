@@ -613,8 +613,71 @@ A mixture of short tail and long tail keywords were carefully considered for the
 An initial list of topics and keywords generated can be seen below. This list was then refined based on relevance and authority.
 
 The most relevant keywords have been added to the site's meta-keywords and meta-description. These keywords have also been carefully included in page titles, headings, site content, `<strong></strong>` tags, image alt attributes and anchor tag links across the site. 
+🏋️‍♀️ Core Product Keywords
 
- ![Keywords](docs/readme_images/seo_keywords.png)
+    women’s gym equipment
+
+    premium gym gear for women
+
+    activewear for women
+
+    fitness apparel for women
+
+    strength training equipment women
+
+    yoga mats women
+
+📈 Wellness & Services Keywords
+
+    women's wellness programs
+
+    female-focused fitness coaching
+
+    personalized yoga sessions women
+
+    workout coaching for women
+
+💳 Platform & Trust Keywords
+
+    secure Stripe payments
+
+    demo e‑commerce fitness site
+
+    test payments gym equipment
+
+🎯 Brand & Niche Keywords
+
+    Iron Queens fitness store
+
+    Iron Queens workout apparel
+
+    female fitness equipment online
+
+🛠️ Technical / SEO Keywords
+
+    Django fitness store
+
+    Python gym store
+
+    AWS S3 e‑commerce platform
+
+    Postgres gym database
+
+    Bootstrap fitness site
+
+    mobile-first gym website
+
+🧩 Long-Tail Keywords (for deeper reach)
+
+    buy yoga mats designed for women
+
+    best resistance bands for female athletes
+
+    women’s strength training equipment online
+
+    female wellness coaching booking platform
+
+
 
 **External Links:**
 
@@ -637,6 +700,29 @@ The site showcases high quality images of previous interior design projects proj
 
 ### Social Media Marketing 
 For this site, a Facebook business page has been created for organic social media marketing. The Facebook page includes a 'Shop Now' button which takes the user to the Fresh Nest website. The page pairs well with the content media marketing on the main site as images of previous projects and new product arrivals can be shared easily.
+Facebook now prioritizes Facebook Shops (hosted by Meta), especially in the New Pages Experience. That’s why you're only seeing:
+
+    “Shop on Facebook”
+
+    “Connect another tool” (e.g. Shopify, BigCommerce, etc.)
+
+Unfortunately, they’ve removed the ability to link external stores directly from the “Shop Now” button in some regions and accounts.
+## 📲 Facebook Page Integration
+
+To link the live store to your Facebook Business Page:
+
+1. Facebook currently does **not support external links** with the **“Shop Now”** button directly.
+2. Instead, use the **“Learn More”** button as a workaround:
+   - Go to your Facebook Business Page.
+   - Click the **Edit Action Button** below your cover photo.
+   - Select **“Learn More”**.
+   - Choose **“Link to Website”** and enter:  
+     `https://iron-queens-9a116e72c4d2.herokuapp.com/`
+3. Save and test the button — it will redirect users to the live Iron Queens store.
+
+![learnmore](docs/readme_images/features/learn_more.png)
+![learnmore](docs/readme_images/features/action_facebook.png)
+
 
 ![Facebook Page](docs/readme_images/features/facebook.png)
 
