@@ -1,12 +1,14 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+
 <head>
     {% block meta %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Our Story – Iron Queens empowers women through fitness. Founded by female athletes, we create gym equipment that fits your strength journey. Meet the team!">
+    <meta name="description"
+        content="Our Story – Iron Queens empowers women through fitness. Founded by female athletes, we create gym equipment that fits your strength journey. Meet the team!">
     <meta name="keywords" content="gym equipment, fitness solutions, strong, capable, confident.">
     {% endblock %}
 
@@ -27,57 +29,62 @@
 </head>
 
 <body>
-<header class="container-fluid fixed-top bg-light">
-    {% include 'includes/main-nav.html' %}
-</header>
+    <header class="container-fluid fixed-top bg-light">
+        {% include 'includes/main-nav.html' %}
+    </header>
 
-<main class="container my-5">
-    {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
+    <main class="container my-5">
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
             {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/toast_error.html' %}
-                {% elif level == 30 %}
-                    {% include 'includes/toasts/toast_warning.html' %}
-                {% elif level == 25 %}
-                    {% include 'includes/toasts/toast_success.html' %}
-                {% else %}
-                    {% include 'includes/toasts/toast_warning.html' %}
-                {% endif %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% endif %}
             {% endwith %}
-        {% endfor %}
-    </div>
-    {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
 
-    {% block page_header %}{% endblock %}
-    {% block content %}{% endblock %}
-</main>
+        {% block page_header %}{% endblock %}
+        {% block content %}{% endblock %}
+    </main>
 
-{% block footer %}
-<footer class="w-100 bg-dark text-white py-4">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
+    {% block footer %}
+    <footer class="w-100 bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
 
-            <!-- Mailchimp Signup Form -->
-            <div class="col-md-3 mb-3">
-                <h5 class="text-black fw-bold">Subscribe</h5>
-                <div id="mc_embed_signup">
-                    <form id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
-                        <div class="mc-field-group">
-                            <label for="mce-EMAIL" class="form-label text-dark">Email Address</label>
-                            <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" required>
-                        </div>
-                        <div style="position:absolute; left:-5000px;" aria-hidden="true">
-                            <input type="text" name="b_94918ca40cfb9c7e64fe731a6_1ec3afd1b3" tabindex="-1" value="">
-                        </div>
-                        <button type="submit" class="btn btn-warning mt-2">Subscribe</button>
+                <!-- Mailchimp Signup Form -->
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-black fw-bold">Newsletter</h5>
+                    <div id="mc_embed_signup">
+                        <form id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                            action="https://herokuapp.us13.list-manage.com/subscribe/post?u=94918ca40cfb9c7e64fe731a6&id=1ec3afd1b3"
+                            method="post" novalidate>
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL" class="form-label text-dark">Email Address</label>
+                                <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning mt-2">Subscribe</button>
+                            <div id="mce-responses" class="clear foot mt-2">
+                                <div id="mce-error-response" style="display:none; color: #dc3545;"></div>
+                                <div id="mce-success-response" style="display:none; color: #28a745;"></div>
+                            </div>
+                        </form>
+                    </div>
 
-                        <!-- Inline messages -->
-                        <div id="mce-responses" class="clear foot mt-2">
-                            <div id="mce-error-response" style="display:none; color: #dc3545;"></div>
-                            <div id="mce-success-response" style="display:none; color: #28a745;"></div>
-                        </div>
+                    <!-- Inline messages -->
+                    <div id="mce-responses" class="clear foot mt-2">
+                        <div id="mce-error-response" style="display:none; color: #dc3545;"></div>
+                        <div id="mce-success-response" style="display:none; color: #28a745;"></div>
+                    </div>
                     </form>
                 </div>
             </div>
@@ -86,10 +93,14 @@
             <div class="col-md-3 text-center mb-3">
                 <h5 class="fw-bold text-black">Quick Links</h5>
                 <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#" class="text-blue text-decoration-none">Shop Queens' Picks</a></li>
-                    <li class="list-inline-item"><a href="{% url 'services' %}" class="text-blue text-decoration-none">Services</a></li>
-                    <li class="list-inline-item"><a href="{% url 'view_testimonials' %}" class="text-blue text-decoration-none">The Iron Tribe</a></li>
-                    <li class="list-inline-item"><a href="{% url 'contact' %}" class="text-blue text-decoration-none">Contact Us</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-blue text-decoration-none">Shop Queens'
+                            Picks</a></li>
+                    <li class="list-inline-item"><a href="{% url 'services' %}"
+                            class="text-blue text-decoration-none">Services</a></li>
+                    <li class="list-inline-item"><a href="{% url 'view_testimonials' %}"
+                            class="text-blue text-decoration-none">The Iron Tribe</a></li>
+                    <li class="list-inline-item"><a href="{% url 'contact' %}"
+                            class="text-blue text-decoration-none">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -97,10 +108,14 @@
             <div class="col-md-3 text-center mb-3">
                 <h5 class="fw-bold text-black">Follow Us</h5>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61577914310455" target="_blank" class="btn btn-outline-light btn-lg me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com" target="_blank" class="btn btn-outline-light btn-lg me-2"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" class="btn btn-outline-light btn-lg me-2"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline-light btn-lg"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61577914310455" target="_blank"
+                        class="btn btn-outline-light btn-lg me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="btn btn-outline-light btn-lg me-2"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="btn btn-outline-light btn-lg me-2"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline-light btn-lg"><i
+                            class="fab fa-linkedin"></i></a>
                 </div>
             </div>
 
@@ -109,98 +124,60 @@
                 <h5 class="fw-bold text-black">The Iron Tribe</h5>
                 <div class="d-flex justify-content-center">
                     <a href="https://womensfitnessdublin.ie" target="_blank" rel="noopener">
-                    <img src="{% static 'media/crown.jpg' %}" loading="lazy" alt="Group 1" class="img-fluid rounded-circle me-2" style="width: 60px;" height="60">
+                        <img src="{% static 'media/crown.jpg' %}" loading="lazy" alt="Group 1"
+                            class="img-fluid rounded-circle me-2" style="width: 60px;" height="60">
                     </a>
                     <a href="https://westwood.ie/gym-zones/women-only-gym" target="_blank" rel="noopener">
-                    <img src="{% static 'media/fitness.jpg' %}" loading="lazy" alt="Group 2" class="img-fluid rounded-circle me-2" style="width: 60px;" height="60">
+                        <img src="{% static 'media/fitness.jpg' %}" loading="lazy" alt="Group 2"
+                            class="img-fluid rounded-circle me-2" style="width: 60px;" height="60">
                     </a>
-                    <a href="https://www.mindbodyonline.com/explore/locations/womens-fitness-sandyford" target="_blank" rel="noopener" height="60">
-                    <img src="{% static 'media/time.webp' %}" loading="lazy" alt="Group 3" class="img-fluid rounded-circle" style="width: 60px;" height="60">
+                    <a href="https://www.mindbodyonline.com/explore/locations/womens-fitness-sandyford" target="_blank"
+                        rel="noopener" height="60">
+                        <img src="{% static 'media/time.webp' %}" loading="lazy" alt="Group 3"
+                            class="img-fluid rounded-circle" style="width: 60px;" height="60">
                     </a>
                 </div>
             </div>
         </div>
         <div>
-  <a href="https://www.shopify.com/tools/policy-generator/show/weDwgJxgcljg--fwzJnrEsDoSh17ra--P51zsAWBH0EypaS3FWGk+w==.pdf"
-     target="_blank" rel="noopener noreferrer">
-    Privacy Policy (PDF)
-  </a>
-</div>
+            <a href="https://www.shopify.com/tools/policy-generator/show/weDwgJxgcljg--fwzJnrEsDoSh17ra--P51zsAWBH0EypaS3FWGk+w==.pdf"
+                target="_blank" rel="noopener noreferrer">
+                Privacy Policy (PDF)
+            </a>
+        </div>
         <div class="text-center mt-3">
             <p class="small text-black mb-1">&copy; 2024 Layali. All rights reserved.</p>
         </div>
 
         <!-- Back to Top Button -->
-        <button id="arrowUp" class="btn btn-primary rounded-circle" style="position: fixed; bottom: 20px; right: 20px; display: none;">
+        <button id="arrowUp" class="btn btn-primary rounded-circle"
+            style="position: fixed; bottom: 20px; right: 20px; display: none;">
             <i class="fas fa-arrow-up"></i>
         </button>
-    </div>
-</footer>
-{% endblock %}
+        </div>
+    </footer>
+    {% endblock %}
 
-{% block corejs %}
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://js.stripe.com/v3/"></script>
-{% endblock %}
+    {% block corejs %}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
 
-{% block postloadjs %}
-<script src="{% static 'js/base.js' %}"></script>
-<script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-<script>
-    (function($) {
-        window.fnames = new Array(); 
-        window.ftypes = new Array();
-        fnames[0] = 'EMAIL'; ftypes[0] = 'email';
-    })(jQuery);
-    var $mcj = jQuery.noConflict(true);
+    {% block postloadjs %}
+    <script src="{% static 'js/base.js' %}"></script>
+    <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script>
+        (function ($) {
+            window.fnames = new Array();
+            window.ftypes = new Array();
+            fnames[0] = 'EMAIL'; ftypes[0] = 'email';
+        })(jQuery);
+        var $mcj = jQuery.noConflict(true);
+    </script>
 
-    // Mailchimp AJAX submission (JSONP)
-    $(document).ready(function() {
-        $('#mc-embedded-subscribe-form').submit(function(e) {
-            e.preventDefault();
-
-            var $form = $(this);
-            var email = $form.find('input[name="EMAIL"]').val();
-            var $error = $('#mce-error-response');
-            var $success = $('#mce-success-response');
-
-            // Simple email validation regex
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                $error.text('Please enter a valid email address.').show();
-                $success.hide();
-                return;
-            }
-
-            // Mailchimp endpoint for JSONP (replace u and id with your own)
-            var url = 'https://herokuapp.us13.list-manage.com/subscribe/post-json?u=94918ca40cfb9c7e64fe731a6&id=1ec3afd1b3&c=?';
-
-            $.ajax({
-                url: url,
-                data: $form.serialize(),
-                dataType: 'jsonp',
-                contentType: "application/json; charset=utf-8",
-                success: function(data) {
-                    if (data.result === 'success') {
-                        $success.text('Thank you for subscribing!').show();
-                        $error.hide();
-                        $form[0].reset();
-                    } else {
-                        var msg = data.msg || 'Sorry, there was an error. Please try again.';
-                        $error.text(msg).show();
-                        $success.hide();
-                    }
-                },
-                error: function() {
-                    $error.text('Could not connect to the subscription server. Please try again later.').show();
-                    $success.hide();
-                }
-            });
-        });
-    });
-</script>
-{% endblock %}
+    {% endblock %}
 </body>
+
 </html>
