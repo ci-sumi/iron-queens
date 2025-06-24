@@ -12,7 +12,7 @@ body {
     margin: 0; /* Remove any auto margins */
 }
 .display-4{
-    margin-top: 120px;
+    margin-top: 150px;
 
 }
 
@@ -96,7 +96,7 @@ p {
     .lead {
         font-size: 1rem;
     }
-    .container {
+    /* .container {
         width:150%;
-    }
+    } */
 }
