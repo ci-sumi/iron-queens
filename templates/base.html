@@ -57,34 +57,33 @@
     </main>
 
     {% block footer %}
-    <footer class="w-100 bg-dark text-white py-4">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
+<footer class="w-100 bg-dark text-white py-4">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
 
-                <!-- Mailchimp Signup Form -->
-                <div class="col-md-3 mb-3">
-                    <h5 class="text-black fw-bold">Newsletter</h5>
-                    <div id="mc_embed_signup">
-                        <form id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                            action="https://herokuapp.us13.list-manage.com/subscribe/post?u=94918ca40cfb9c7e64fe731a6&id=1ec3afd1b3"
-                            method="post" novalidate>
-                            <div class="mc-field-group">
-                                <label for="mce-EMAIL" class="form-label text-dark">Email Address</label>
-                                <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" required>
-                            </div>
-                            <button type="submit" class="btn btn-warning mt-2">Subscribe</button>
-                            <div id="mce-responses" class="clear foot mt-2">
-                                <div id="mce-error-response" style="display:none; color: #dc3545;"></div>
-                                <div id="mce-success-response" style="display:none; color: #28a745;"></div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Inline messages -->
-                    <div id="mce-responses" class="clear foot mt-2">
-                        <div id="mce-error-response" style="display:none; color: #dc3545;"></div>
-                        <div id="mce-success-response" style="display:none; color: #28a745;"></div>
-                    </div>
+            <!-- Mailchimp Signup Form -->
+            <div class="col-md-3 mb-3">
+                <h5 class="text-black fw-bold">Newsletter</h5>
+                <div id="mc_embed_signup">
+                    <form id="mc-embedded-subscribe-form" 
+                          name="mc-embedded-subscribe-form" 
+                          class="validate"
+                          action="https://herokuapp.us13.list-manage.com/subscribe/post?u=94918ca40cfb9c7e64fe731a6&id=1ec3afd1b3"
+                          method="post" 
+                          novalidate>
+                        <div class="mc-field-group">
+                            <label for="mce-EMAIL" class="form-label text-dark">Email Address</label>
+                            <input type="email" 
+                                   name="EMAIL" 
+                                   class="form-control" 
+                                   id="mce-EMAIL" 
+                                   required>
+                        </div>
+                        <button type="submit" class="btn btn-warning mt-2">Subscribe</button>
+                        <div id="mce-responses" class="clear foot mt-2">
+                            <div id="mce-error-response" style="display:none; color: #dc3545;"></div>
+                            <div id="mce-success-response" style="display:none; color: #28a745;"></div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -93,14 +92,10 @@
             <div class="col-md-3 text-center mb-3">
                 <h5 class="fw-bold text-black">Quick Links</h5>
                 <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#" class="text-blue text-decoration-none">Shop Queens'
-                            Picks</a></li>
-                    <li class="list-inline-item"><a href="{% url 'services' %}"
-                            class="text-blue text-decoration-none">Services</a></li>
-                    <li class="list-inline-item"><a href="{% url 'view_testimonials' %}"
-                            class="text-blue text-decoration-none">The Iron Tribe</a></li>
-                    <li class="list-inline-item"><a href="{% url 'contact' %}"
-                            class="text-blue text-decoration-none">Contact Us</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-blue text-decoration-none">Shop Queens' Picks</a></li>
+                    <li class="list-inline-item"><a href="{% url 'services' %}" class="text-blue text-decoration-none">Services</a></li>
+                    <li class="list-inline-item"><a href="{% url 'view_testimonials' %}" class="text-blue text-decoration-none">The Iron Tribe</a></li>
+                    <li class="list-inline-item"><a href="{% url 'contact' %}" class="text-blue text-decoration-none">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -108,14 +103,18 @@
             <div class="col-md-3 text-center mb-3">
                 <h5 class="fw-bold text-black">Follow Us</h5>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61577914310455" target="_blank"
-                        class="btn btn-outline-light btn-lg me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com" target="_blank" class="btn btn-outline-light btn-lg me-2"><i
-                            class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" class="btn btn-outline-light btn-lg me-2"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline-light btn-lg"><i
-                            class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61577914310455" target="_blank" class="btn btn-outline-light btn-lg me-2">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="btn btn-outline-light btn-lg me-2">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" class="btn btn-outline-light btn-lg me-2">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline-light btn-lg">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </div>
 
@@ -124,40 +123,56 @@
                 <h5 class="fw-bold text-black">The Iron Tribe</h5>
                 <div class="d-flex justify-content-center">
                     <a href="https://womensfitnessdublin.ie" target="_blank" rel="noopener">
-                        <img src="{% static 'media/crown.jpg' %}" loading="lazy" alt="Group 1"
-                            class="img-fluid rounded-circle me-2" style="width: 60px;" height="60">
+                        <img src="{% static 'media/crown.jpg' %}" 
+                             loading="lazy" 
+                             alt="Group 1"
+                             class="img-fluid rounded-circle me-2" 
+                             style="width: 60px;" 
+                             height="60">
                     </a>
                     <a href="https://westwood.ie/gym-zones/women-only-gym" target="_blank" rel="noopener">
-                        <img src="{% static 'media/fitness.jpg' %}" loading="lazy" alt="Group 2"
-                            class="img-fluid rounded-circle me-2" style="width: 60px;" height="60">
+                        <img src="{% static 'media/fitness.jpg' %}" 
+                             loading="lazy" 
+                             alt="Group 2"
+                             class="img-fluid rounded-circle me-2" 
+                             style="width: 60px;" 
+                             height="60">
                     </a>
-                    <a href="https://www.mindbodyonline.com/explore/locations/womens-fitness-sandyford" target="_blank"
-                        rel="noopener" height="60">
-                        <img src="{% static 'media/time.webp' %}" loading="lazy" alt="Group 3"
-                            class="img-fluid rounded-circle" style="width: 60px;" height="60">
+                    <a href="https://www.mindbodyonline.com/explore/locations/womens-fitness-sandyford" 
+                       target="_blank"
+                       rel="noopener">
+                        <img src="{% static 'media/time.webp' %}" 
+                             loading="lazy" 
+                             alt="Group 3"
+                             class="img-fluid rounded-circle" 
+                             style="width: 60px;" 
+                             height="60">
                     </a>
                 </div>
             </div>
         </div>
+
         <div>
             <a href="https://www.shopify.com/tools/policy-generator/show/weDwgJxgcljg--fwzJnrEsDoSh17ra--P51zsAWBH0EypaS3FWGk+w==.pdf"
-                target="_blank" rel="noopener noreferrer">
+               target="_blank" 
+               rel="noopener noreferrer">
                 Privacy Policy (PDF)
             </a>
         </div>
+
         <div class="text-center mt-3">
             <p class="small text-black mb-1">&copy; 2024 Layali. All rights reserved.</p>
         </div>
 
         <!-- Back to Top Button -->
-        <button id="arrowUp" class="btn btn-primary rounded-circle"
-            style="position: fixed; bottom: 20px; right: 20px; display: none;">
+        <button id="arrowUp" 
+                class="btn btn-primary rounded-circle"
+                style="position: fixed; bottom: 20px; right: 20px; display: none;">
             <i class="fas fa-arrow-up"></i>
         </button>
-        </div>
-    </footer>
-    {% endblock %}
-
+    </div>
+</footer>
+{% endblock %}
     {% block corejs %}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
