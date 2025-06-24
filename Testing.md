@@ -210,7 +210,7 @@
 *As a site user, I can add / edit / delete a testimonial in relation to a consultation I received so that I can give my feedback.*
 - When a logged-in user clicks on the "Add Testimonial" button on the Testimonials page, they can see a user-friendly form where they can add a new Testimonial to the site.
 
-![Add Testimonial](docs/readme_images/features/add_testimonial.png)
+![Add Testimonial](docs/readme_images/features/)
 - If the user is not logged in they are redirected to the log-in page.
 - The user is able to edit and delete their own testimonials from buttons on the Testimonials Page.
 - The edit forms fields are pre-populated with testimonial information.
@@ -290,3 +290,25 @@ For Python code, the [CI PEP8](https://pep8ci.herokuapp.com/) online validator w
 ![Profile](docs/readme_images/python/profile_view.py.png)
 ![Services](docs/readme_images/python/services.py.png)
 ![Services](docs/readme_images/python/services.py.pg)
+
+## Lighthouse
+
+Lighthouse validation was run on all pages in order to check accessibility and performance. Many warnings were fixed including 'Background and foreground colours do not have a sufficient contrast ratio' and the below scores were achieved.
+
+Lighthouse Validation
+The [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) tool was used to measure the performance of the website.
+
+These are the results of the validation:
+![Context](docs/readme_images/light_house/checkout.png)
+![Context](docs/readme_images/light_house/contactus.png)
+![Context](docs/readme_images/light_house/order_history.png)
+![Context](docs/readme_images/light_house/product_management.png)
+![Context](docs/readme_images/light_house/products.png)
+![Context](docs/readme_images/light_house/profile.png)
+![Context](docs/readme_images/light_house/services.png)
+![Context](docs/readme_images/light_house/shopping_cart.png)
+![Context](docs/readme_images/light_house/signin.png)
+![Context](docs/readme_images/light_house/signout.png)
+![Context](docs/readme_images/light_house/testimonial.png)
+
+
