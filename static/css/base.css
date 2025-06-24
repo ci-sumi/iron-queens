@@ -77,7 +77,7 @@ form i {
 
 /* Profile Dropdown */
 .navbar .dropdown-menu {
-    background-color: white /* Match dropdown menu to navbar */
+    background-color: rgb(239, 9, 9) /* Match dropdown menu to navbar */
 }
 
 .navbar .dropdown-item {
