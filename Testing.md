@@ -1,11 +1,10 @@
 # Testing
-
 - [User Story Testing](#user-story-testing)
 - [Validator Testing](#validator-testing)
-  * [HTML](#html)
-  * [CSS](#css)
-  * [JSHINT](#jshint)
-  * [Python Validation - Pycodestyle](#python-validation---pycodestyle)
+   - [HTML Validation](#html-validation)
+  - [CSS](#css)
+  - [JSHINT](#jshint)
+  - [Python Validation - - Pycodestyle](#python-validation---pycodestyle)
   * [Lighthouse](#lighthouse)
 - [Device Testing](#device-testing)
 - [Browser Testing](#browser-testing)
@@ -13,19 +12,17 @@
   * [Site Navigation](#site-navigation)
   * [Home Page](#home-page)
   * [All Auth Pages](#all-auth-pages)
-  * [Home Decor](#home-decor)
   * [Product Detail](#product-detail)
-  * [Home Decor Management](#home-decor-management)
+  * [product Management](#product-management)
   * [Bag](#bag)
   * [Checkout](#checkout)
   * [Profile](#profile)
-  * [Interior Design Services](#interior-design-services)
-  * [Interior Design Management](#interior-design-management)
+  * [Services](#services)
   * [Testimonials](#testimonials)
   * [Testimonial Management](#testimonial-management)
   * [Contact](#contact)
-  * [Enquiries Dashboard](#enquiries-dashboard)
-- [Fixed Bugs](#fixed-bugs)
+  
+
 
 ## User Story Testing
 
@@ -192,9 +189,6 @@
 - When the site owner navigates to the Enquiries Management page they can see a list of user enquiries sorted from newest to oldest.
 - Emails that have been read are greyed out.
 
-![Enquiries Dashboard](docs/readme_images/features/enquiry_dashboard.png)
-- When the site owner clicks on an enquiry they are taken to the individual enquiry detail.
-- The site owner can choose to delete the enquiry or to go back to the list of enquiries.
 
 
 
@@ -205,17 +199,17 @@
 - If the user is logged in, their email address is prepopulated.
 - When the form is submitted, the user receives an email confirmation of their enquiry so that they have a record of it.
 
-![Enquiry Form](docs/readme_images/features/enquiry_form.png)
+![Enquiry Form](docs/readme_images/features/contactus.png)
 
 *As a site user, I can add / edit / delete a testimonial in relation to a consultation I received so that I can give my feedback.*
 - When a logged-in user clicks on the "Add Testimonial" button on the Testimonials page, they can see a user-friendly form where they can add a new Testimonial to the site.
 
-![Add Testimonial](docs/readme_images/features/)
+![Add Testimonial](docs/readme_images/features/testimonials.png)
 - If the user is not logged in they are redirected to the log-in page.
 - The user is able to edit and delete their own testimonials from buttons on the Testimonials Page.
 - The edit forms fields are pre-populated with testimonial information.
 
-![Edit Testimonial](docs/readme_images/features/edit_testimonial.png)
+![Edit Testimonial](docs/readme_images/features/testimonials.png)
 
 - The completed testimonial is automatically populated with the user's username and date underneath the body.
 
@@ -228,7 +222,7 @@
 
 ## Validator Testing
 
-HTML Validation
+### HTML Validation
 [The W3C Markup Validator](https://validator.w3.org/) service was used to validate the HTML.
 
 These are the results of the validation:
@@ -261,7 +255,7 @@ These are the results of the validation:
 ![Signup](docs/readme_images/html_validation/signup_html_validation.png)
 
 
-CSS Validation
+### CSS
 The [CSS Validation](https://jigsaw.w3.org/css-validator/) Service was used for CSS code.
 
 These are the results of the validation:
@@ -277,6 +271,7 @@ These are the results of the validation:
 ![Services](docs/readme_images/css_validation/services_css_validation.png)
 ![Profile](docs/readme_images/css_validation/profile_css_html.png)
 
+### jshint
 The [JSHint](https://jshint.com/) JavaScript Code Quality Tool was used to validate the sites JS code.
 ![Base](docs/readme_images/js_validation/base_js_validation.png)
 
@@ -284,7 +279,7 @@ The [JSHint](https://jshint.com/) JavaScript Code Quality Tool was used to valid
 
 ![Stripe](docs/readme_images/js_validation/stripe_js_validation.png)
 
-Python Validation
+#### python-validation---pycodestyle
 For Python code, the [CI PEP8](https://pep8ci.herokuapp.com/) online validator was used to validate the code.
 ![Context](docs/readme_images/python/context.py.png)
 ![Profile](docs/readme_images/python/profile_view.py.png)
@@ -299,16 +294,58 @@ Lighthouse Validation
 The [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) tool was used to measure the performance of the website.
 
 These are the results of the validation:
-![Context](docs/readme_images/light_house/checkout.png)
-![Context](docs/readme_images/light_house/contactus.png)
-![Context](docs/readme_images/light_house/order_history.png)
-![Context](docs/readme_images/light_house/product_management.png)
-![Context](docs/readme_images/light_house/products.png)
-![Context](docs/readme_images/light_house/profile.png)
-![Context](docs/readme_images/light_house/services.png)
-![Context](docs/readme_images/light_house/shopping_cart.png)
-![Context](docs/readme_images/light_house/signin.png)
-![Context](docs/readme_images/light_house/signout.png)
-![Context](docs/readme_images/light_house/testimonial.png)
+![home](docs/readme_images/light_house/home.png)
+![checkout](docs/readme_images/light_house/checkout.png)
+![contatus](docs/readme_images/light_house/contactus.png)
+![order_history](docs/readme_images/light_house/order_history.png)
+![Product_management](docs/readme_images/light_house/product_management.png)
+![Products](docs/readme_images/light_house/products.png)
+![Profile](docs/readme_images/light_house/profile.png)
+![services](docs/readme_images/light_house/services.png)
+![Shopping_cart](docs/readme_images/light_house/shopping_cart.png)
+![signin](docs/readme_images/light_house/signin.png)
+![Signout](docs/readme_images/light_house/signout.png)
+![Testimonial](docs/readme_images/light_house/testimonial.png)
 
+## Device Testing
+
+The website was viewed on a variety of devices such as Desktop, Laptop, iPhone 8, iPhoneXR and iPad to ensure responsiveness on various screen sizes in both portrait and landscape mode. The website performed as intended. The responsive design was also checked using Chrome developer tools across multiple devices with structural integrity holding for the various sizes.
+
+## Browser Testing
+
+The Website was tested on Google Chrome, Firefox, Safari browsers with no issues noted.
+
+## site navigation
+![site navigation](docs/readme_images/features/header.png)
+
+## home page
+![site navigation](docs/readme_images/features/home.png)
+
+## All Auth Pages
+![site navigation](docs/readme_images/features/signin.png)
+![site navigation](docs/readme_images/features/signup.png)
+
+## product-detail
+![site navigation](docs/readme_images/features/product_detail.png)
+
+## product Management
+![product management](docs/readme_images/features/add_product.png)
+
+## bag
+![bag](docs/readme_images/features/bag.png)
+
+## checkout
+![checkout](docs/readme_images/features/check_out.png)
+
+## profile
+![profile](docs/readme_images/features/delivery_info.png)
+
+## services
+![services](docs/readme_images/features/services.png)
+
+## testimonials
+![services](docs/readme_images/features/testimonials.png)
+
+## contact
+![contact](docs/readme_images/features/contactus.png)
 
