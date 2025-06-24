@@ -3,7 +3,6 @@ from .models import UserProfile
 from .models import Contact
 
 
-
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
@@ -36,5 +35,7 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ['name', 'email', 'enquiry_type', 'message']
         widgets = {
-            'enquiry_type': forms.Select(attrs={'class': 'form-control border-black rounded-0'}),
+            'enquiry_type': forms.Select(
+                attrs={'class': 'form-control border-black rounded-0'}
+                ),
         }
