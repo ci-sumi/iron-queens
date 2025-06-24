@@ -995,5 +995,5 @@ To clone this repository follow the below steps:
 
 ## Acknowledgments
 
-Many thanks to my mentor 
+Many thanks to my friend 
 Tomislav for his support and advice. Thanks to The Code Institute slack community for their quick responses and very helpful feedback.
